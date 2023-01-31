@@ -6,6 +6,35 @@ Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-ne
 
 Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur yang benar. Untuk studi kasus kali ini, Saya telah membuatkan sebuah templat proyek kosong yang sudah Saya kustomisasi yang sekiranya sudah mengimplementasi bagaimana cara mengatur proyek arsitektur yang baik agar terlihat rapi.
 
+```
+/
+├── public/
+├── src/
+│   └── components/
+│   │   └── Common/
+│   │   └── Containers/
+│   │   │   └── Home/
+│   │   │       └── components/
+│   │   │       └── Home.jsx
+│   │   └── Mixins/
+│   │   └── README.md
+│   └── pages/
+│   │   └── api/
+│   │   └── _app.jsx
+│   │   └── index.jsx
+│   └── styles/
+│       └── globals.css
+│       └── Home.module.css
+└── .eslintrc.json
+└── .gitignore.json
+└── next.config.js
+└── package-lock.json
+└── package.json
+└── postcss.config.js
+└── README.md
+└── tailwind.config.js
+```
+
 ### Folder Common
 
 Folder `Common` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Common` Berisikan komponen-komponen kecil, seperti: tombol, dropdown, dll.
@@ -22,7 +51,19 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 
 ## Mulai Sekarang
 
-Pertama, install `depedencies` awal didalam proyek ini:
+Pertama, buat sebuah folder kosong dan buka folder tersebut ke terminal lalu eksekusi perintah berikut:
+
+```bash
+npx degit nuflakbrr/next-template#javascript-version .
+```
+
+atau jika Anda ingin menggunakan versi `Typescript`, eksekusi perintah berikut:
+
+```bash
+npx degit https://github.com/nuflakbrr/next-template.git .
+```
+
+Kedua, install `depedencies` didalam proyek yang sudah Anda klona:
 
 ```bash
 npm install
@@ -30,7 +71,7 @@ npm install
 yarn install
 ```
 
-Kedua, jalankan server pengembangan:
+Ketiga, jalankan server pengembangan:
 
 ```bash
 npm run dev
@@ -38,7 +79,7 @@ npm run dev
 yarn dev
 ```
 
-Ketiga, buka [http://localhost:3000](http://localhost:3000) pada browser anda dan lihat hasilnya.
+Keempat, buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
 
 Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/Home.tsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
 
