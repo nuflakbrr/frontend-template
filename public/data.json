@@ -1,8 +1,17 @@
-{
-  "id": 1,
-  "first": "John",
-  "last": "Doe",
-  "job": "Software Engineer",
-  "age": 25,
-  "email": "johndoe@gmail.com"
-}
+[
+  {
+    "id": 1,
+    "text": "Get dinner fixings",
+    "done": false
+  },
+  {
+    "id": 2,
+    "text": "Cook dinner",
+    "done": false
+  },
+  {
+    "id": 3,
+    "text": "Eat dinner",
+    "done": false
+  }
+]
