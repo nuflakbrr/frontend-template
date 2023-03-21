@@ -52,7 +52,6 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── todolist.ts
 │   └── styles/
 │   │   └── globals.css
-│   │   └── Home.module.css
 │   └── utils/
 │       └── interfaces/
 │       │   └── todolist.ts
