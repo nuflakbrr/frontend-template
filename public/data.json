@@ -1,4 +1,8 @@
 {
-  "foo": "bar",
-  "baz": "bar"
+  "id": 1,
+  "first": "John",
+  "last": "Doe",
+  "job": "Software Engineer",
+  "age": 25,
+  "email": "johndoe@gmail.com"
 }
