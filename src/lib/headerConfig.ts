@@ -7,7 +7,6 @@ export const headerConfigJSON = () => {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
-          // 'Content-Type': 'multipart/form-data',
         },
       };
     } else {
