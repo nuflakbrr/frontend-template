@@ -2,6 +2,15 @@
 
 Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Fitur
+
+Fitur yang terdapat pada templat proyek ini adalah:
+
+- Proyek Arsitektur.
+- State Management ([zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)).
+- Beberapa fungsi kustom yang sering [saya](https://github.com/nuflakbrr) pakai.
+- Implementasi `Types` dan `Interface`.
+
 ## Proyek Arsitektur
 
 Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur yang benar. Untuk studi kasus kali ini, Saya telah membuatkan sebuah templat proyek kosong yang sudah Saya kustomisasi yang sekiranya sudah mengimplementasi bagaimana cara mengatur proyek arsitektur yang baik agar terlihat rapi.
@@ -12,19 +21,43 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 ├── src/
 │   └── components/
 │   │   └── Common/
+│   │   │   └── Navbar/
+│   │   │   └── Footer.tsx
 │   │   └── Containers/
+│   │   │   └── About/
+│   │   │   │   └── components/
+│   │   │   │   └── About.tsx
 │   │   │   └── Home/
 │   │   │       └── components/
 │   │   │       └── Home.tsx
-│   │   └── Mixins/
+│   │   └── CustomIcons.tsx
 │   │   └── README.md
+│   │   └── ScrollToTop.tsx
+│   └── data/
+│   │   └── headerNavLinks.ts
+│   └── lib/
+│   │   └── axios.ts
+│   │   └── bindingState.ts
+│   │   └── blockAccess.ts
+│   │   └── classNames.ts
+│   │   └── formatCurrency.ts
+│   │   └── headerConfig.ts
+│   │   └── logout.ts
 │   └── pages/
 │   │   └── api/
 │   │   └── _app.tsx
+│   │   └── about.tsx
 │   │   └── index.tsx
+│   └── store/
+│   │   └── todolist.ts
 │   └── styles/
-│       └── globals.css
-│       └── Home.module.css
+│   │   └── globals.css
+│   │   └── Home.module.css
+│   └── utils/
+│       └── interfaces/
+│       │   └── todolist.ts
+│       └── types/
+│           └── todolist.ts
 └── .eslintrc.json
 └── .gitignore.json
 └── next-env.d.ts
@@ -39,11 +72,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 
 ### Folder Common
 
-Folder `Common` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Common` Berisikan komponen-komponen kecil, seperti: tombol, dropdown, dll.
-
-### Folder Mixins
-
-Folder `Mixins` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Mixins` Berisikan komponen-komponen yang merupakan gabungan dari komponen-komponen kecil dari folder `Common`. Seperti: navbar (yang berisi beberapa hal umum seperti tombol, dropdown, dll).
+Folder `Common` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Common` Berisikan komponen-komponen sering digunakan, seperti: navbar, footer, dll.
 
 ### Folder Containers
 
