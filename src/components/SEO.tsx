@@ -69,6 +69,7 @@ export const PageSEO = ({
 }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+
   return (
     <CommonSEO
       title={title}
