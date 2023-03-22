@@ -2,12 +2,20 @@
 
 Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Teknologi Yang Digunakan
+
+- [Next.js (Typescript)](https://nextjs.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+
 ## Fitur
 
 Fitur yang terdapat pada templat proyek ini adalah:
 
+- SEO dasar.
 - Proyek Arsitektur.
-- State Management ([zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)).
+- State Management.
 - Beberapa fungsi kustom yang sering [saya](https://github.com/nuflakbrr) pakai.
 - Implementasi `Types` dan `Interface`.
 
@@ -33,8 +41,10 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── CustomIcons.tsx
 │   │   └── README.md
 │   │   └── ScrollToTop.tsx
+│   │   └── SEO.tsx
 │   └── data/
 │   │   └── headerNavLinks.ts
+│   │   └── siteMetadata.ts
 │   └── lib/
 │   │   └── axios.ts
 │   │   └── bindingState.ts
@@ -75,9 +85,13 @@ Folder `Common` terletak pada `/src/components/`. Lalu didalamnya berisikan apa 
 
 ### Folder Containers
 
-Folder `Containers` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Containers` Berisikan kombinasi folder `Mixins` dan `Common` yang membentuk 1 halaman. 1 halaman 1 folder `Containers` agar tetap rapi.
+Folder `Containers` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Containers` Berisikan kombinasi folder `Common` dan halaman itu sendiri yang membentuk 1 halaman. 1 halaman 1 folder `Containers` agar tetap rapi.
 
 Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan menaruhnya di dalam folder `components` namun masih tetap dalam 1 folder `Containers`. Seperti: `/src/components/Containers/Home/components`.
+
+## SEO Dasar
+
+Anda dapat mengkustomisasi `SEO Dasar` pada templat ini dengan memodifikasi dokumen `/src/data/siteMetadata.ts`. Anda juga bisa melihat bagaimana saya membuat `SEO Dasar` pada templat ini melalui dokumen `/src/components/SEO.tsx`.
 
 ## Mulai Sekarang
 
