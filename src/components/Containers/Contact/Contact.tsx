@@ -5,7 +5,7 @@ import { siteMetadata } from '@/data/siteMetadata';
 import MainLayout from '@/layouts/MainLayout';
 import TopSection from './components/TopSection';
 
-const ContainerAbout: FC = () => {
+const ContainerContact: FC = () => {
   return (
     <>
       <PageSEO
@@ -19,7 +19,7 @@ const ContainerAbout: FC = () => {
             <div className="flex flex-wrap">
               <div className="w-full px-4">
                 <TopSection />
-                <h1 className="text-3xl font-bold underline">Hello about!</h1>
+                <h1 className="text-3xl font-bold underline">Hello contact!</h1>
               </div>
             </div>
           </div>
@@ -29,4 +29,4 @@ const ContainerAbout: FC = () => {
   );
 };
 
-export default ContainerAbout;
+export default ContainerContact;

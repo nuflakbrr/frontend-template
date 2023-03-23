@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import useSWR from 'swr';
 
-import Navbar from '@/components/Common/Navbar/Navbar';
-import Footer from '@/components/Common/Footer';
-import { PageSEO } from '@/components/SEO';
+import { PageSEO } from '@/components/Common/SEO';
 import { siteMetadata } from '@/data/siteMetadata';
 import { useFetcher } from '@/hooks/fetcher';
+import MainLayout from '@/layouts/MainLayout';
 import TodoList from './components/TodoList';
 
 const ContainerHome: FC = () => {
@@ -21,9 +20,7 @@ const ContainerHome: FC = () => {
         description={siteMetadata.description}
       />
 
-      <Navbar />
-
-      <main className="py-24">
+      <MainLayout>
         <section className="max-w-7xl mx-auto h-96">
           <div className="container">
             <div className="flex flex-wrap">
@@ -56,9 +53,7 @@ const ContainerHome: FC = () => {
             </div>
           </div>
         </section>
-      </main>
-
-      <Footer />
+      </MainLayout>
     </>
   );
 };
