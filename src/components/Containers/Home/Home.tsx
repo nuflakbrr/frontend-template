@@ -1,12 +1,19 @@
 import { FC } from 'react';
+import useSWR from 'swr';
 
 import Navbar from '@/components/Common/Navbar/Navbar';
 import Footer from '@/components/Common/Footer';
 import { PageSEO } from '@/components/SEO';
-import { siteMetadata } from '@/data/siteMetaData';
+import { siteMetadata } from '@/data/siteMetadata';
+import { useFetcher } from '@/hooks/fetcher';
 import TodoList from './components/TodoList';
 
 const ContainerHome: FC = () => {
+  const { data, error, isLoading } = useSWR('/data.json', useFetcher);
+
+  if (error) return <div>Terjadi kesalahan</div>;
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <>
       <PageSEO
@@ -22,6 +29,17 @@ const ContainerHome: FC = () => {
             <div className="flex flex-wrap">
               <div className="w-full px-4">
                 <TodoList />
+
+                {/* Example implement useSWR */}
+                <div className="flex flex-col my-10">
+                  <h1>
+                    Dibawah ini adalah contoh output dari penggunaan useSWR
+                  </h1>
+
+                  <pre>{JSON.stringify(data)}</pre>
+                </div>
+                {/* Example implement useSWR */}
+
                 <h1 className="text-3xl font-bold underline my-5">
                   Hello world from{' '}
                   <a

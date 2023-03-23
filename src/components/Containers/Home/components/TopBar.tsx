@@ -1,20 +1,21 @@
 import { FC } from 'react';
+import useSWR from 'swr';
 
 import useStore from '@/store/todolist';
 import { Todo } from '@/utils/interfaces/todolist';
+import { useFetcher } from '@/hooks/fetcher';
 
 const TopBar: FC = () => {
   const store = useStore((state) => state);
 
-  const onLoad = () => {
-    fetch('http://localhost:3000/data.json')
-      .then((res) => res.json())
-      .then((todo: Todo[]) => store.setTodos(todo));
-  };
+  const { data, error, isLoading } = useSWR('/data.json', useFetcher);
 
-  const onDeleteAll = () => {
-    store.setTodos([]);
-  };
+  if (error) return <div>Terjadi kesalahan</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  const onLoad = () => store.setTodos(data as Todo[]);
+
+  const onDeleteAll = () => store.setTodos([]);
 
   return (
     <div className="flex items-center justify-center w-[500px]">
