@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Navbar from '@/components/Common/Navbar/Navbar';
 import Footer from '@/components/Common/Footer';
 import { PageSEO } from '@/components/SEO';
-import { siteMetadata } from '@/data/siteMetaData';
+import { siteMetadata } from '@/data/siteMetadata';
 import TopSection from './components/TopSection';
 
 const ContainerAbout: FC = () => {
