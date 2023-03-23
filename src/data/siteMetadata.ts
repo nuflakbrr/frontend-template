@@ -1,5 +1,5 @@
 export const siteMetadata = {
-  title: 'Next.js Typescript Starter by Naufal Akbar Nugroho',
+  title: 'Next.js Typescript Starter Project by Naufal Akbar Nugroho',
   author: 'Naufal Akbar Nugroho',
   headerTitle: 'Naufal Akbar Nugroho',
   headerMobTitle: 'Naufal Akbar',
