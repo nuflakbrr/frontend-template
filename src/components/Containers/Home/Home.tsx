@@ -1,18 +1,11 @@
 import { FC } from 'react';
-import useSWR from 'swr';
 
 import { PageSEO } from '@/components/Common/SEO';
 import { siteMetadata } from '@/data/siteMetadata';
-import { useFetcher } from '@/hooks/fetcher';
 import MainLayout from '@/layouts/MainLayout';
 import TodoList from './components/TodoList';
 
 const ContainerHome: FC = () => {
-  const { data, error, isLoading } = useSWR('/data.json', useFetcher);
-
-  if (error) return <div>Terjadi kesalahan</div>;
-  if (isLoading) return <div>Loading...</div>;
-
   return (
     <>
       <PageSEO
@@ -21,34 +14,21 @@ const ContainerHome: FC = () => {
       />
 
       <MainLayout>
-        <section className="max-w-7xl mx-auto h-96">
+        <section className="max-w-7xl mx-auto">
+          <div className="container mt-20 mb-40">
+            <div className="flex flex-wrap">
+              <div className="w-full px-4">
+                <h1 className="text-4xl font-bold text-center text-gray-800">
+                  {siteMetadata.title}
+                </h1>
+              </div>
+            </div>
+          </div>
+
           <div className="container">
             <div className="flex flex-wrap">
               <div className="w-full px-4">
                 <TodoList />
-
-                {/* Example implement useSWR */}
-                <div className="flex flex-col my-10">
-                  <h1>
-                    Dibawah ini adalah contoh output dari penggunaan useSWR
-                  </h1>
-
-                  <pre>{JSON.stringify(data)}</pre>
-                </div>
-                {/* Example implement useSWR */}
-
-                <h1 className="text-3xl font-bold underline my-5">
-                  Hello world from{' '}
-                  <a
-                    href="https://docs.pmnd.rs/zustand/getting-started/introduction"
-                    target={'_blank'}
-                    rel="noreferrer"
-                    className="text-blue-500 hover:text-blue-700"
-                  >
-                    Zustand
-                  </a>
-                  !
-                </h1>
               </div>
             </div>
           </div>
