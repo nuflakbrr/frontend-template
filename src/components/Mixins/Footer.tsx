@@ -6,7 +6,7 @@ import {
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
-} from '../CustomIcons';
+} from '../Common/CustomIcons';
 
 const Footer: FC = () => {
   const year = new Date().getFullYear();
@@ -17,7 +17,6 @@ const Footer: FC = () => {
   ];
 
   const secondaryLink = [
-    { title: 'Facilities', url: '/facilities' },
     { title: 'Career', url: '/career' },
     { title: 'Internship', url: '/internship' },
   ];
