@@ -8,6 +8,7 @@ Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-ne
 - [Tailwindcss](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/docs/intro)
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- [SWR](https://swr.vercel.app)
 
 ## Fitur
 
@@ -16,7 +17,8 @@ Fitur yang terdapat pada templat proyek ini adalah:
 - SEO dasar.
 - Proyek Arsitektur.
 - State Management.
-- Beberapa fungsi kustom yang sering [saya](https://github.com/nuflakbrr) pakai.
+- Kustomisasi `React Hooks` untuk `Data Fetching`.
+- Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
 - Implementasi `Types` dan `Interface`.
 
 ## Proyek Arsitektur
@@ -45,6 +47,8 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   └── data/
 │   │   └── headerNavLinks.ts
 │   │   └── siteMetadata.ts
+│   └── hooks/
+│   │   └── fetcher.ts
 │   └── lib/
 │   │   └── axios.ts
 │   │   └── bindingState.ts
@@ -92,6 +96,10 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 ## SEO Dasar
 
 Anda dapat mengkustomisasi `SEO Dasar` pada templat ini dengan memodifikasi dokumen `/src/data/siteMetadata.ts`. Anda juga bisa melihat bagaimana saya membuat `SEO Dasar` pada templat ini melalui dokumen `/src/components/SEO.tsx`.
+
+## Kustomisasi React Hooks Untuk Data Fetching
+
+Anda dapat menggunakan, bahkan menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. [Saya](https://github.com/nuflakbrr) telah menambahkan sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [SWR](https://swr.vercel.app).
 
 ## Mulai Sekarang
 
