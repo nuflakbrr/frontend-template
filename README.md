@@ -72,6 +72,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── api/
 │   │   └── _app.tsx
 │   │   └── about.tsx
+│   │   └── contact.tsx
 │   │   └── index.tsx
 │   └── store/
 │   │   └── todolist.ts
@@ -82,8 +83,9 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │       │   └── todolist.ts
 │       └── types/
 │           └── todolist.ts
+└── .env.example
 └── .eslintrc.json
-└── .gitignore.json
+└── .gitignore
 └── next-env.d.ts
 └── next.config.js
 └── package-lock.json
@@ -118,16 +120,16 @@ Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada
 
 ## Mulai Sekarang
 
-Pertama, buat sebuah folder kosong dan buka folder tersebut ke terminal lalu eksekusi perintah berikut:
+Pertama, buka terminal lalu eksekusi perintah berikut:
 
 ```bash
-npx degit https://github.com/nuflakbrr/next-template.git .
+npx degit https://github.com/nuflakbrr/next-template.git <nama_proyek>
 ```
 
 atau jika Anda ingin menggunakan versi `Javascipt`, eksekusi perintah berikut:
 
 ```bash
-npx degit nuflakbrr/next-template#javascript-version .
+npx degit nuflakbrr/next-template#javascript-version <nama_proyek>
 ```
 
 Kedua, install `depedencies` didalam proyek yang sudah Anda klona:
