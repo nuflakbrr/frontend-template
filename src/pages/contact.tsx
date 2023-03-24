@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import ContainerContact from '@/components/Containers/Contact/Contact';
 
-const contact: FC = () => {
+const Contact: FC = () => {
   return <ContainerContact />;
 };
 
-export default contact;
+export default Contact;
