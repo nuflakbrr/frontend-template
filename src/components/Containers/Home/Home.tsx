@@ -15,7 +15,7 @@ const ContainerHome: FC = () => {
 
       <MainLayout>
         <section className="max-w-7xl mx-auto">
-          <div className="container mt-20 mb-40">
+          <div className="container mt-40 mb-40">
             <div className="flex flex-wrap">
               <div className="w-full px-4">
                 <h1 className="text-4xl font-bold text-center text-gray-800">
