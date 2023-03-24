@@ -17,7 +17,7 @@ Fitur yang terdapat pada templat proyek ini adalah:
 - SEO dasar.
 - Proyek Arsitektur.
 - State Management.
-- Kustomisasi `React Hooks` untuk `Data Fetching`.
+- Kustomisasi `React Hooks`.
 - Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
 
 ### SEO Dasar
@@ -107,7 +107,7 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 
 Pada templat proyek ini sudah menggunakan implementasi `State Management` menggunakan [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction). Agar penggunaan tetap optimal, pada saat Anda ingin membuat `state` baru, perlu di ingat bahwa Anda harus meng-definisikan `Interface` dan `Type` terlebih dahulu pada folder `/src/utils`. Kemudian Anda dapat meng-definisikan apa saja yang Anda butuhkan untuk `state` tersebut pada folder `/src/store`.
 
-### Kustomisasi React Hooks Untuk Data Fetching
+### Kustomisasi React Hooks
 
 Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [SWR](https://swr.vercel.app) dan [Axios](https://axios-http.com/docs/intro).
 
