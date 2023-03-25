@@ -56,7 +56,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── headerNavLinks.js
 │   │   └── siteMetadata.js
 │   └── hooks/
-│   │   └── fetcher.js
+│   │   └── useFetcher.js
 │   └── layouts/
 │   │   └── MainLayout.jsx
 │   └── lib/
