@@ -3,7 +3,7 @@ import useSWR from 'swr';
 
 import useStore from '@/store/todolist';
 import { Todo } from '@/utils/interfaces/todolist';
-import { useFetcher } from '@/hooks/fetcher';
+import { useFetcher } from '@/hooks/useFetcher';
 
 const TopBar: FC = () => {
   const store = useStore((state) => state);

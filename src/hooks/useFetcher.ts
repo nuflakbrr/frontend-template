@@ -6,13 +6,13 @@ import axios from '@/lib/axios';
  * dengan method yang berbeda.
  *
  * Seperti contoh dibawah ini:
- * export const useFetchById = (url: string) => axios.get(url).then((res) => res.data);
+ * export const useFetcherById = (url: string, headers: any) => axios.get(url, headers).then((res) => res.data);
  *
- * export const usePost = (url: string, data: any, headers: any) => axios.post(url, data, headers).then((res) => res.data);
+ * export const usePostFetcher = (url: string, data: any, headers: any) => axios.post(url, data, headers).then((res) => res.data);
  *
- * export const usePut = (url: string, data: any, headers: any) => axios.put(url, data, headers).then((res) => res.data);
+ * export const usePutFetcher = (url: string, data: any, headers: any) => axios.put(url, data, headers).then((res) => res.data);
  *
- * export const useDelete = (url: string) => axios.delete(url).then((res) => res.data);
+ * export const useDeleteFetcher = (url: string, data: any, headers: any) => axios.delete(url, data, headers).then((res) => res.data);
  */
 
 /**
