@@ -57,7 +57,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── headerNavLinks.ts
 │   │   └── siteMetadata.ts
 │   └── hooks/
-│   │   └── fetcher.ts
+│   │   └── useFetcher.ts
 │   └── layouts/
 │   │   └── MainLayout.tsx
 │   └── lib/
