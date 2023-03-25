@@ -105,7 +105,7 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 
 ### State Management
 
-Pada templat proyek ini sudah menggunakan implementasi `State Management` menggunakan [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction). Agar penggunaan tetap optimal, pada saat Anda ingin membuat `state` baru, perlu di ingat bahwa Anda harus meng-definisikan `Interface` dan `Type` terlebih dahulu pada folder `/src/utils`. Kemudian Anda dapat meng-definisikan apa saja yang Anda butuhkan untuk `state` tersebut pada folder `/src/store`.
+Pada templat proyek ini sudah menggunakan implementasi `State Management` menggunakan [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction). Agar penggunaan tetap optimal, pada saat Anda ingin membuat `state` baru, perlu di ingat bahwa Anda harus meng-definisikan apa saja yang Anda butuhkan untuk `state` tersebut pada folder `/src/store`.
 
 ### Kustomisasi React Hooks
 
