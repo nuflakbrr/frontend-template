@@ -6,9 +6,10 @@ Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-ne
 
 - [Next.js (Typescript)](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
-- [Axios](https://axios-http.com/docs/intro)
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
-- [SWR](https://swr.vercel.app)
+- [NextAuth.js](https://next-auth.js.org/getting-started/introduction/)
+- [Axios](https://axios-http.com/docs/intro/)
+- [SWR](https://swr.vercel.app/)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction/)
 
 ## Fitur
 
@@ -16,6 +17,7 @@ Fitur yang terdapat pada templat proyek ini adalah:
 
 - SEO dasar.
 - Proyek Arsitektur.
+- Authentikasi.
 - State Management.
 - Kustomisasi `React Hooks`.
 - Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
@@ -43,6 +45,9 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   │   └── About/
 │   │   │   │   └── components/
 │   │   │   │   └── About.tsx
+│   │   │   └── Auth/
+│   │   │   │   └── Login.tsx
+│   │   │   │   └── Register.tsx
 │   │   │   └── Contact/
 │   │   │   │   └── components/
 │   │   │   │   └── Contact.tsx
@@ -70,18 +75,25 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   │   └── logout.ts
 │   └── pages/
 │   │   └── api/
+│   │   │   └── auth/
+│   │   │       └── [...nextauth].ts
 │   │   └── _app.tsx
 │   │   └── about.tsx
 │   │   └── contact.tsx
 │   │   └── index.tsx
+│   │   └── login.tsx
+│   │   └── register.tsx
 │   └── store/
+│   │   └── auth.ts
 │   │   └── todolist.ts
 │   └── styles/
 │   │   └── globals.css
 │   └── utils/
 │       └── interfaces/
+│       │   └── auth.ts
 │       │   └── todolist.ts
 │       └── types/
+│           └── auth.ts
 │           └── todolist.ts
 └── .env.example
 └── .eslintrc.json
@@ -109,6 +121,10 @@ Folder `Mixins` terletak pada `/src/components/`. Lalu didalamnya berisikan apa 
 Folder `Containers` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Containers` Berisikan kombinasi folder `Common` dan halaman itu sendiri yang membentuk 1 halaman. 1 halaman 1 folder `Containers` agar tetap rapi.
 
 Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan menaruhnya di dalam folder `components` namun masih tetap dalam 1 folder `Containers`. Seperti: `/src/components/Containers/Home/components`.
+
+### Authentikasi
+
+Pada templat proyek ini sudah menggunakan authentikasi menggunakan [NextAuth](https://next-auth.js.org/getting-started/introduction/). Sudah terdapat sebuah contoh authentikasi menggunakan `GitHub`, jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` dan `register` kembali. Anda juga dapat memproteksi halaman `root` atau `/` Anda dengan menghapus komentar pada file `/src/pages/index.js`.
 
 ### State Management
 
