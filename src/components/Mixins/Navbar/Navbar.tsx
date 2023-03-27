@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 import styles from './Navbar.module.css';
@@ -8,6 +9,8 @@ import { classNames } from '@/lib/classNames';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const { data: session } = useSession();
 
   const router = useRouter();
   const { pathname } = router;
@@ -115,6 +118,40 @@ const Navbar: FC = () => {
                       </Link>
                     </li>
                   ))}
+                  {!session ? (
+                    <>
+                      <li className="group">
+                        <Link href="/login" legacyBehavior>
+                          <a
+                            className={classNames(
+                              isMenuActive('/login')
+                                ? 'text-teal-500'
+                                : 'text-black',
+                              'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out'
+                            )}
+                          >
+                            Masuk
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="group">
+                        <Link href="/register" legacyBehavior>
+                          <a
+                            className={classNames(
+                              isMenuActive('/register')
+                                ? 'text-teal-500'
+                                : 'text-black',
+                              'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out'
+                            )}
+                          >
+                            Daftar
+                          </a>
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <li></li>
+                  )}
                 </ul>
               </nav>
             </div>
