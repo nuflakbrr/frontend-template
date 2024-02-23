@@ -1,6 +1,10 @@
 {
   "name": "next-template",
   "version": "0.2.0",
+  "author": {
+    "email": "naufalakbar378@gmail.com",
+    "name": "Naufal Akbar Nugroho"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
