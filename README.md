@@ -113,7 +113,7 @@ Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada
 Pertama, buka terminal lalu eksekusi perintah berikut:
 
 ```bash
-npx degit https://github.com/nuflakbrr/next-template.git <nama_proyek>
+npx degit nuflakbrr/next-template#master <nama_proyek>
 ```
 
 atau jika Anda ingin menggunakan versi `Javascipt`, eksekusi perintah berikut:
