@@ -116,6 +116,12 @@ Pertama, buka terminal lalu eksekusi perintah berikut:
 npx degit nuflakbrr/next-template#master <nama_proyek>
 ```
 
+atau, jika Anda ingin menggunakan versi `Typescript & Payload CMS`, eksekusi perintah berikut:
+
+```bash
+npx degit nuflakbrr/next-template#typescript-payloadcms-version <nama_proyek>
+```
+
 atau jika Anda ingin menggunakan versi `Javascipt`, eksekusi perintah berikut:
 
 ```bash
