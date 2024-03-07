@@ -35,59 +35,33 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 /
 ├── public/
 ├── src/
+│   └── app/
+│   │   └── about/
+│   │   └── api/
+│   │   │   └── auth/
+│   │   │       └── [...nextauth].ts
+│   │   └── auth/
+│   │   └── contact/
+│   │   └── favicon.ico
+│   │   └── globals.css
+│   │   └── layout.tsx
+│   │   └── page.tsx
 │   └── components/
 │   │   └── Common/
-│   │   │   └── CustomIcons.tsx
-│   │   │   └── CustomLink.tsx
-│   │   │   └── ScrollToTop.tsx
-│   │   │   └── SEO.tsx
 │   │   └── Containers/
 │   │   │   └── About/
-│   │   │   │   └── components/
-│   │   │   │   └── About.tsx
 │   │   │   └── Auth/
-│   │   │   │   └── Login.tsx
-│   │   │   │   └── Register.tsx
 │   │   │   └── Contact/
-│   │   │   │   └── components/
-│   │   │   │   └── Contact.tsx
 │   │   │   └── Home/
-│   │   │       └── components/
-│   │   │       └── Home.tsx
 │   │   └── Mixins/
 │   │   │   └── Navbar/
 │   │   │   └── Footer.tsx
 │   │   └── README.md
 │   └── data/
-│   │   └── headerNavLinks.ts
-│   │   └── siteMetadata.ts
 │   └── hooks/
-│   │   └── useFetcher.ts
 │   └── layouts/
-│   │   └── MainLayout.tsx
 │   └── lib/
-│   │   └── axios.ts
-│   │   └── bindingState.ts
-│   │   └── blockAccess.ts
-│   │   └── classNames.ts
-│   │   └── formatCurrency.ts
-│   │   └── headerConfig.ts
-│   │   └── logout.ts
-│   └── pages/
-│   │   └── api/
-│   │   │   └── auth/
-│   │   │       └── [...nextauth].ts
-│   │   └── _app.tsx
-│   │   └── about.tsx
-│   │   └── contact.tsx
-│   │   └── index.tsx
-│   │   └── login.tsx
-│   │   └── register.tsx
 │   └── store/
-│   │   └── auth.ts
-│   │   └── todolist.ts
-│   └── styles/
-│   │   └── globals.css
 │   └── utils/
 │       └── interfaces/
 │       │   └── auth.ts
@@ -99,12 +73,12 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 └── .eslintrc.json
 └── .gitignore
 └── next-env.d.ts
-└── next.config.js
+└── next.config.mjs
 └── package-lock.json
 └── package.json
 └── postcss.config.js
 └── README.md
-└── tailwind.config.js
+└── tailwind.config.ts
 └── tsconfig.json
 ```
 
@@ -124,7 +98,7 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 
 ### Authentikasi
 
-Pada templat proyek ini sudah menggunakan authentikasi menggunakan [NextAuth](https://next-auth.js.org/getting-started/introduction/). Sudah terdapat sebuah contoh authentikasi menggunakan `GitHub`, jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` dan `register` kembali. Anda juga dapat memproteksi halaman `root` atau `/` Anda dengan menghapus komentar pada file `/src/pages/index.js`.
+Pada templat proyek ini sudah menggunakan authentikasi menggunakan [NextAuth](https://next-auth.js.org/getting-started/introduction/). Sudah terdapat sebuah contoh authentikasi menggunakan `GitHub`, jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` dan `register` kembali. Anda juga dapat memproteksi halaman `root` atau `/` Anda dengan menghapus komentar pada file `/src/app/page.ts`.
 
 ### State Management
 
@@ -170,9 +144,9 @@ Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Container
 
 ## Rute API
 
-[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/pages/api/hello.ts`.
+[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/app/api/hello.ts`.
 
-Folder `/src/pages/api` dipetakan ke `/api/*`. File dalam direktori ini diperlakukan sebagai [Rute API](https://nextjs.org/docs/api-routes/introduction) bukannya Bereaksi halaman.
+Folder `/src/app/api` dipetakan ke `/api/*`. File dalam direktori ini diperlakukan sebagai [Rute API](https://nextjs.org/docs/api-routes/introduction) bukannya Bereaksi halaman.
 
 ## Pelajari Lebih
 
