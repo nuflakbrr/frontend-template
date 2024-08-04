@@ -6,26 +6,16 @@ Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-ne
 
 - [Next.js (Typescript)](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
-- [NextAuth.js](https://next-auth.js.org/getting-started/introduction/)
 - [Axios](https://axios-http.com/docs/intro/)
-- [SWR](https://swr.vercel.app/)
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction/)
 
 ## Fitur
 
 Fitur yang terdapat pada templat proyek ini adalah:
 
-- SEO dasar.
 - Proyek Arsitektur.
 - Authentikasi.
-- State Management.
 - Kustomisasi `React Hooks`.
 - Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
-- Implementasi `Types` dan `Interface`.
-
-### SEO Dasar
-
-Anda dapat mengkustomisasi `SEO Dasar` pada templat ini dengan memodifikasi dokumen `/src/data/siteMetadata.ts`. Anda juga bisa melihat bagaimana Saya membuat `SEO Dasar` pada templat ini melalui dokumen `/src/components/SEO.tsx`.
 
 ### Proyek Arsitektur
 
@@ -38,43 +28,30 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   └── app/
 │   │   └── about/
 │   │   └── api/
-│   │   │   └── auth/
-│   │   │       └── [...nextauth].ts
 │   │   └── auth/
 │   │   └── contact/
 │   │   └── favicon.ico
 │   │   └── globals.css
 │   │   └── layout.tsx
+│   │   └── loading.tsx
+│   │   └── not-found.tsx
 │   │   └── page.tsx
 │   └── components/
 │   │   └── Common/
 │   │   └── Containers/
-│   │   │   └── About/
-│   │   │   └── Auth/
-│   │   │   └── Contact/
-│   │   │   └── Home/
 │   │   └── Mixins/
-│   │   │   └── Navbar/
-│   │   │   └── Footer.tsx
 │   │   └── README.md
+│   └── context/
 │   └── data/
 │   └── hooks/
+│   └── interfaces/
 │   └── layouts/
 │   └── lib/
-│   └── store/
-│   └── utils/
-│       └── interfaces/
-│       │   └── auth.ts
-│       │   └── todolist.ts
-│       └── types/
-│           └── auth.ts
-│           └── todolist.ts
 └── .env.example
 └── .eslintrc.json
 └── .gitignore
 └── next-env.d.ts
 └── next.config.mjs
-└── package-lock.json
 └── package.json
 └── postcss.config.js
 └── README.md
@@ -98,15 +75,11 @@ Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan 
 
 ### Authentikasi
 
-Pada templat proyek ini sudah menggunakan authentikasi menggunakan [NextAuth](https://next-auth.js.org/getting-started/introduction/). Sudah terdapat sebuah contoh authentikasi menggunakan `GitHub`, jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` dan `register` kembali. Anda juga dapat memproteksi halaman `root` atau `/` Anda dengan menghapus komentar pada file `/src/app/page.ts`.
-
-### State Management
-
-Pada templat proyek ini sudah menggunakan implementasi `State Management` menggunakan [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction). Agar penggunaan tetap optimal, pada saat Anda ingin membuat `state` baru, perlu di ingat bahwa Anda harus meng-definisikan `Interface` dan `Type` terlebih dahulu pada folder `/src/utils`. Kemudian Anda dapat meng-definisikan apa saja yang Anda butuhkan untuk `state` tersebut pada folder `/src/store`.
+Pada templat proyek ini sudah menggunakan authentikasi menggunakan `React Context`. Jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` atau `register` kembali.
 
 ### Kustomisasi React Hooks
 
-Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [SWR](https://swr.vercel.app) dan [Axios](https://axios-http.com/docs/intro).
+Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [Axios](https://axios-http.com/docs/intro).
 
 ## Mulai Sekarang
 
@@ -136,7 +109,13 @@ npm install
 yarn install
 ```
 
-Ketiga, jalankan server pengembangan:
+Ketiga, salin `environment variable` dengan perintah berikut:
+
+```bash
+cp .env.example .env
+```
+
+Keempat, jalankan server pengembangan:
 
 ```bash
 npm run dev
@@ -144,7 +123,7 @@ npm run dev
 yarn dev
 ```
 
-Keempat, buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
+Kelima, buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
 
 Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/Home.tsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
 
