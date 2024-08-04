@@ -1,6 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import styles from './Navbar.module.css';
@@ -10,10 +9,7 @@ import { classNames } from '@/lib/classNames';
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { data: session } = useSession();
-
-  const router = useRouter();
-  const { pathname } = router;
+  const pathname = usePathname();
 
   // Navbar fixed position if scrolling
   useEffect(() => {
@@ -34,17 +30,15 @@ const Navbar: FC = () => {
     const hamburger = document.querySelector('#hamburger');
     const navMenu = document.querySelector('#navMenu');
 
-    hamburger?.addEventListener('click', () => {
-      setIsOpen(!isOpen);
+    setIsOpen(!isOpen);
 
-      if (isOpen) {
-        hamburger?.classList.remove(styles.hamburgerActive);
-        navMenu?.classList.add('hidden');
-      } else {
-        hamburger?.classList.add(styles.hamburgerActive);
-        navMenu?.classList.remove('hidden');
-      }
-    });
+    if (isOpen) {
+      hamburger?.classList.remove(styles.hamburgerActive);
+      navMenu?.classList.add('hidden');
+    } else {
+      hamburger?.classList.add(styles.hamburgerActive);
+      navMenu?.classList.remove('hidden');
+    }
   };
 
   // isMenuActive handler
@@ -60,7 +54,7 @@ const Navbar: FC = () => {
 
   return (
     <header className="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between relative">
             <div className="px-4">
@@ -104,54 +98,41 @@ const Navbar: FC = () => {
                 <ul className="block lg:flex">
                   {headerNavLinks?.map((a, i) => (
                     <li className="group" key={i}>
-                      <Link href={a.path} legacyBehavior>
-                        <a
-                          className={classNames(
-                            isMenuActive(a.path)
-                              ? 'text-teal-500'
-                              : 'text-black',
-                            'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out'
-                          )}
-                        >
-                          {a.title}
-                        </a>
+                      <Link
+                        href={a.path}
+                        className={classNames(
+                          isMenuActive(a.path) ? 'text-teal-500' : 'text-black',
+                          'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                        )}
+                      >
+                        {a.title}
                       </Link>
                     </li>
                   ))}
-                  {!session ? (
-                    <>
-                      <li className="group">
-                        <Link href="/login" legacyBehavior>
-                          <a
-                            className={classNames(
-                              isMenuActive('/login')
-                                ? 'text-teal-500'
-                                : 'text-black',
-                              'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out'
-                            )}
-                          >
-                            Masuk
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="group">
-                        <Link href="/register" legacyBehavior>
-                          <a
-                            className={classNames(
-                              isMenuActive('/register')
-                                ? 'text-teal-500'
-                                : 'text-black',
-                              'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out'
-                            )}
-                          >
-                            Daftar
-                          </a>
-                        </Link>
-                      </li>
-                    </>
-                  ) : (
-                    <li></li>
-                  )}
+                  <li className="group">
+                    <Link
+                      href="/login"
+                      className={classNames(
+                        isMenuActive('/login') ? 'text-teal-500' : 'text-black',
+                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                      )}
+                    >
+                      Masuk
+                    </Link>
+                  </li>
+                  <li className="group">
+                    <Link
+                      href="/register"
+                      className={classNames(
+                        isMenuActive('/register')
+                          ? 'text-teal-500'
+                          : 'text-black',
+                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                      )}
+                    >
+                      Daftar
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>

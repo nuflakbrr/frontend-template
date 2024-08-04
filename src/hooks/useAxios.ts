@@ -1,12 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
-import { useRouter } from 'next/router';
 import https from 'https';
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 export const createNewClient: () => AxiosInstance = () => {
   const BASE_API =
-    process.env.NEXT_PUBLIC_API_URL || 'https://tes-mobile.landa.id/api/';
+    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/';
 
   return axios.create({
     baseURL: BASE_API,
@@ -22,11 +21,8 @@ export const client: AxiosInstance = createNewClient();
 type HookType = (accessToken?: string) => AxiosInstance;
 
 export const useAxios: HookType = (accessToken) => {
-  const { locale } = useRouter();
-
   client.interceptors.request.use((config) => {
     const newConfig = { ...config };
-    newConfig.headers['Accept-Language'] = locale;
 
     if (accessToken) {
       newConfig.headers.Authorization = `Bearer ${accessToken}`;
