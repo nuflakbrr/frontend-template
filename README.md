@@ -1,4 +1,4 @@
-## Nextjs Typescript Template (Include Tailwindcss, Customize ESLint Rules)
+## Nextjs Template (Include Tailwindcss, Customize ESLint Rules)
 
 Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
