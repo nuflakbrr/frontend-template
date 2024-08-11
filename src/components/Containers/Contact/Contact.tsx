@@ -25,7 +25,8 @@ const ContainerContact: FC = () => {
                     </h1>
 
                     <h1 className="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-900">
-                      Web Developer | Undergraduate Information Systems Student
+                      Frontend Developer | Undergraduate Information Systems
+                      Student
                     </h1>
 
                     <p className="mb-8 leading-relaxed">
