@@ -59,8 +59,7 @@ const ContainerAbout: FC = () => {
                     mempermudah dalam membuat proyek baru dengan Next.js dan
                     Typescript. Hanya dengan menjalankan perintah:{' '}
                     <span className="bg-gray-200 text-[15px] p-1 rounded font-mono">
-                      npx degit https://github.com/nuflakbrr/next-template.git
-                      nama-proyek
+                      npx degit nuflakbrr/next-template#nextjs-ts nama-proyek
                     </span>
                   </p>
 
