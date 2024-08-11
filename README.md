@@ -50,13 +50,12 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 └── .env.example
 └── .eslintrc.json
 └── .gitignore
-└── next-env.d.ts
-└── next.config.mjs
+└── jsconfig.json
+└── next.config.js
 └── package.json
 └── postcss.config.js
 └── README.md
-└── tailwind.config.ts
-└── tsconfig.json
+└── tailwind.config.js
 ```
 
 #### Folder Common
@@ -177,7 +176,7 @@ Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Container
 
 ## Rute API
 
-[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/app/api/hello.ts`.
+[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/app/api/hello.js`.
 
 Folder `/src/app/api` dipetakan ke `/api/*`. File dalam direktori ini diperlakukan sebagai [Rute API](https://nextjs.org/docs/api-routes/introduction) bukannya Bereaksi halaman.
 
