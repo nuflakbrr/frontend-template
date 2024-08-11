@@ -4,7 +4,7 @@ Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-ne
 
 ## Teknologi Yang Digunakan
 
-- [Next.js (Typescript)](https://nextjs.org/)
+- [Next.js](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/docs/intro/)
 
