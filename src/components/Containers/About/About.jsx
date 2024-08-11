@@ -6,7 +6,7 @@ import MainLayout from '@/layouts/MainLayout';
 const ContainerAbout = () => {
   return (
     <MainLayout>
-      <section className="mx-auto max-w-7xl">
+      <section className="flex items-center justify-center min-h-screen mx-auto max-w-7xl">
         <div className="container">
           <div className="flex flex-wrap">
             <div className="w-full px-4">
@@ -75,7 +75,7 @@ const ContainerAbout = () => {
                     mempermudah dalam membuat proyek baru dengan Next.js. Hanya
                     dengan menjalankan perintah:{' '}
                     <span className="bg-gray-200 text-[15px] p-1 rounded font-mono">
-                      npx degit nuflakbrr/next-template#javascript-version
+                      npx degit nuflakbrr/frontend-template#nextjs-js
                       nama-proyek
                     </span>
                   </p>
