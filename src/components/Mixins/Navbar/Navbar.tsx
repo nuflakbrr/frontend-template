@@ -1,3 +1,4 @@
+'use client';
 import { FC, useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -5,6 +6,7 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { headerNavLinks } from '@/data/headerNavLinks';
 import { classNames } from '@/lib/classNames';
+import ThemeToggle from '@/components/Common/ThemeToggle';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -101,7 +103,9 @@ const Navbar: FC = () => {
                       <Link
                         href={a.path}
                         className={classNames(
-                          isMenuActive(a.path) ? 'text-teal-500' : 'text-black',
+                          isMenuActive(a.path)
+                            ? 'text-teal-500'
+                            : 'text-black dark:text-zinc-50',
                           'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
                         )}
                       >
@@ -113,7 +117,9 @@ const Navbar: FC = () => {
                     <Link
                       href="/login"
                       className={classNames(
-                        isMenuActive('/login') ? 'text-teal-500' : 'text-black',
+                        isMenuActive('/login')
+                          ? 'text-teal-500'
+                          : 'text-black dark:text-zinc-50',
                         'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
                       )}
                     >
@@ -126,13 +132,15 @@ const Navbar: FC = () => {
                       className={classNames(
                         isMenuActive('/register')
                           ? 'text-teal-500'
-                          : 'text-black',
+                          : 'text-black dark:text-zinc-50',
                         'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
                       )}
                     >
                       Daftar
                     </Link>
                   </li>
+
+                  <ThemeToggle />
                 </ul>
               </nav>
             </div>

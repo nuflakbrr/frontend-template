@@ -6,7 +6,7 @@ import MainLayout from '@/layouts/MainLayout';
 const ContainerAbout: FC = () => {
   return (
     <MainLayout>
-      <section className="max-w-7xl mx-auto">
+      <section className="flex items-center justify-center max-w-7xl mx-auto min-h-screen">
         <div className="container">
           <div className="flex flex-wrap">
             <div className="w-full px-4">

@@ -6,7 +6,7 @@ import MainLayout from '@/layouts/MainLayout';
 const ContainerContact: FC = () => {
   return (
     <MainLayout>
-      <section className="max-w-7xl mx-auto">
+      <section className="flex items-center justify-center min-h-screen max-w-7xl mx-auto">
         <div className="container">
           <div className="flex flex-wrap">
             <div className="w-full px-4">
@@ -25,8 +25,7 @@ const ContainerContact: FC = () => {
                     </h1>
 
                     <h1 className="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-900">
-                      Junior Frontend Developer | Vocational High School
-                      Students
+                      Web Developer | Undergraduate Information Systems Student
                     </h1>
 
                     <p className="mb-8 leading-relaxed">
