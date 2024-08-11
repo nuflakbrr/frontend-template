@@ -83,49 +83,97 @@ Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada
 
 ## Mulai Sekarang
 
-Pertama, buka terminal lalu eksekusi perintah berikut:
+Template ini tersedia di BikinProject! Cara bagaimana untuk menggunakan template ini, ikuti langkah-langkah sederhana berikut:
+
+1. **Instal BikinProject**: Mulailah dengan menginstal BikinProject di komputer Anda.
 
 ```bash
-npx degit nuflakbrr/next-template#master <nama_proyek>
+  npx bikinproject@latest
 ```
 
-atau, jika Anda ingin menggunakan versi `Typescript & Payload CMS`, eksekusi perintah berikut:
+2. **Beritahu BikinProject Tempat Membuat Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.
 
 ```bash
-npx degit nuflakbrr/next-template#typescript-payloadcms-version <nama_proyek>
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  └  ./your-project # Masukkan nama proyek Anda, seperti my-project atau .
 ```
 
-atau jika Anda ingin menggunakan versi `Javascipt`, eksekusi perintah berikut:
+3. **Pilih Proyek Starter**: Pilih proyek permulaan yang sesuai dengan kebutuhan Anda.
 
 ```bash
-npx degit nuflakbrr/next-template#javascript-version <nama_proyek>
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  ● Next.js App Router (Tailwind + TypeScript)
+  │  ○ Next.js App Router (Tailwind + JavaScript)
+  │  ○ dll.
+  └  # Pilih jenis proyek dengan menggunakan tombol panah
 ```
 
-Kedua, install `depedencies` didalam proyek yang sudah Anda klona:
+4. **Pilih sertakan instal dependensi**: Pilih untuk menginstal dependensi atau tidak.
 
 ```bash
-npm install
-# or
-yarn install
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  Next.js App Router (Tailwind + TypeScript)
+  │
+  ◇  Install dependencies? (currently only NPM is supported)
+  │  ● Yes / ○ No
+  └  # Pilih Ya atau Tidak menggunakan tombol panah
 ```
 
-Ketiga, salin `environment variable` dengan perintah berikut:
+5. **Tunggu BikinProject Membuat Proyek**: Tunggu BikinProject membuat proyek untuk Anda.
+
+> [!NOTE]
+> Jika Anda memilih untuk memasang dependensi, BikinProject akan memasang dependensi yang diperlukan untuk Anda. Harap tunggu hingga penginstalan selesai.
+
+```bash
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  Next.js App Router (Tailwind + TypeScript)
+  │
+  ◇  Install dependencies? (currently only NPM is supported)
+  │  No
+  │
+  ◇  ⏳ Creating project...
+  │
+  ◇  🎉 Project Created!
+  │
+  ◇  Next steps. ───────────────╮
+  │                             │
+  │  cd ./your-project          │
+  │  npm install                │
+  │  npm run dev                │
+  │                             │
+  ├─────────────────────────────╯
+  │
+  └  Have a Problems? Report to https://github.com/nuflakbrr/bikinproject/issues
+```
+
+6. **Mulai Membangun Proyek Anda**: Setelah BikinProject menghasilkan `starter project`, selanjutnya membangun proyek Anda.
+
+7. **Salin Environment Variable**: Salin `environment variable` dengan perintah berikut
 
 ```bash
 cp .env.example .env
 ```
 
-Keempat, jalankan server pengembangan:
+8. **Buka Server Pengembangan**: Buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Kelima, buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
-
-Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/Home.tsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
+Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/Home.jsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
 
 ## Rute API
 
