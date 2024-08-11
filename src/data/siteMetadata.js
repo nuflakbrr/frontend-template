@@ -17,6 +17,6 @@ export const siteMetadata = {
   instagram: 'https://www.instagram.com/kbrnugroho',
   github: 'https://www.github.com/nuflakbrr',
   twitter: 'https://www.twitter.com/nuflakbrr',
-  linkedin: 'https://www.linkedin.com/public-profile/in/nuflakbrr/',
+  linkedin: 'https://www.linkedin.com/in/nuflakbrr/',
   locale: 'id-ID',
 };
