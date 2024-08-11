@@ -44,9 +44,9 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   └── context/
 │   └── data/
 │   └── hooks/
-│   └── interfaces/
 │   └── layouts/
 │   └── lib/
+│   └── providers/
 └── .env.example
 └── .eslintrc.json
 └── .gitignore
