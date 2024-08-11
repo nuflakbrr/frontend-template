@@ -1,28 +1,21 @@
-## Nextjs Template (Include Tailwindcss, Customize ESLint Rules)
+## Nextjs Typescript Template (Include Tailwindcss, Customize ESLint Rules)
 
 Ini adalah proyek [Next.js](https://nextjs.org/) di-bootstrap dengan [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Teknologi Yang Digunakan
 
-- [Next.js](https://nextjs.org/)
+- [Next.js (Typescript)](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
-- [Axios](https://axios-http.com/docs/intro)
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
-- [SWR](https://swr.vercel.app)
+- [Axios](https://axios-http.com/docs/intro/)
 
 ## Fitur
 
 Fitur yang terdapat pada templat proyek ini adalah:
 
-- SEO dasar.
 - Proyek Arsitektur.
-- State Management.
+- Authentikasi.
 - Kustomisasi `React Hooks`.
 - Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
-
-### SEO Dasar
-
-Anda dapat mengkustomisasi `SEO Dasar` pada templat ini dengan memodifikasi dokumen `/src/data/siteMetadata.js`. Anda juga bisa melihat bagaimana Saya membuat `SEO Dasar` pada templat ini melalui dokumen `/src/components/SEO.jsx`.
 
 ### Proyek Arsitektur
 
@@ -32,61 +25,38 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 /
 ├── public/
 ├── src/
+│   └── app/
+│   │   └── about/
+│   │   └── api/
+│   │   └── auth/
+│   │   └── contact/
+│   │   └── favicon.ico
+│   │   └── globals.css
+│   │   └── layout.jsx
+│   │   └── loading.jsx
+│   │   └── not-found.jsx
+│   │   └── page.jsx
 │   └── components/
 │   │   └── Common/
-│   │   │   └── CustomIcons.jsx
-│   │   │   └── CustomLink.jsx
-│   │   │   └── ScrollToTop.jsx
-│   │   │   └── SEO.jsx
 │   │   └── Containers/
-│   │   │   └── About/
-│   │   │   │   └── components/
-│   │   │   │   └── About.jsx
-│   │   │   └── Contact/
-│   │   │   │   └── components/
-│   │   │   │   └── Contact.jsx
-│   │   │   └── Home/
-│   │   │       └── components/
-│   │   │       └── Home.jsx
 │   │   └── Mixins/
-│   │   │   └── Navbar/
-│   │   │   └── Footer.jsx
 │   │   └── README.md
+│   └── context/
 │   └── data/
-│   │   └── headerNavLinks.js
-│   │   └── siteMetadata.js
 │   └── hooks/
-│   │   └── useFetcher.js
+│   └── interfaces/
 │   └── layouts/
-│   │   └── MainLayout.jsx
 │   └── lib/
-│   │   └── axios.js
-│   │   └── bindingState.js
-│   │   └── blockAccess.js
-│   │   └── classNames.js
-│   │   └── formatCurrency.js
-│   │   └── headerConfig.js
-│   │   └── logout.js
-│   └── pages/
-│   │   └── api/
-│   │   └── _app.jsx
-│   │   └── about.jsx
-│   │   └── contact.jsx
-│   │   └── index.jsx
-│   └── store/
-│   │   └── todolist.js
-│   └── styles/
-│       └── globals.css
 └── .env.example
 └── .eslintrc.json
 └── .gitignore
-└── jsconfig.json
-└── next.config.js
-└── package-lock.json
+└── next-env.d.ts
+└── next.config.mjs
 └── package.json
 └── postcss.config.js
 └── README.md
-└── tailwind.config.js
+└── tailwind.config.ts
+└── tsconfig.json
 ```
 
 #### Folder Common
@@ -103,53 +73,113 @@ Folder `Containers` terletak pada `/src/components/`. Lalu didalamnya berisikan 
 
 Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan menaruhnya di dalam folder `components` namun masih tetap dalam 1 folder `Containers`. Seperti: `/src/components/Containers/Home/components`.
 
-### State Management
+### Authentikasi
 
-Pada templat proyek ini sudah menggunakan implementasi `State Management` menggunakan [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction). Agar penggunaan tetap optimal, pada saat Anda ingin membuat `state` baru, perlu di ingat bahwa Anda harus meng-definisikan apa saja yang Anda butuhkan untuk `state` tersebut pada folder `/src/store`.
+Pada templat proyek ini sudah menggunakan authentikasi menggunakan `React Context`. Jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` atau `register` kembali.
 
 ### Kustomisasi React Hooks
 
-Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [SWR](https://swr.vercel.app) dan [Axios](https://axios-http.com/docs/intro).
+Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [Axios](https://axios-http.com/docs/intro).
 
 ## Mulai Sekarang
 
-Pertama, buka terminal lalu eksekusi perintah berikut:
+Template ini tersedia di BikinProject! Cara bagaimana untuk menggunakan template ini, ikuti langkah-langkah sederhana berikut:
+
+1. **Instal BikinProject**: Mulailah dengan menginstal BikinProject di komputer Anda.
 
 ```bash
-npx degit nuflakbrr/next-template#javascript-version <nama_proyek>
+  npx bikinproject@latest
 ```
 
-atau jika Anda ingin menggunakan versi `Typescript`, eksekusi perintah berikut:
+2. **Beritahu BikinProject Tempat Membuat Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.
 
 ```bash
-npx degit https://github.com/nuflakbrr/next-template.git <nama_proyek>
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  └  ./your-project # Masukkan nama proyek Anda, seperti my-project atau .
 ```
 
-Kedua, install `depedencies` didalam proyek yang sudah Anda klona:
+3. **Pilih Proyek Starter**: Pilih proyek permulaan yang sesuai dengan kebutuhan Anda.
 
 ```bash
-npm install
-# or
-yarn install
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  ● Next.js App Router (Tailwind + TypeScript)
+  │  ○ Next.js App Router (Tailwind + JavaScript)
+  │  ○ dll.
+  └  # Pilih jenis proyek dengan menggunakan tombol panah
 ```
 
-Ketiga, jalankan server pengembangan:
+4. **Pilih sertakan instal dependensi**: Pilih untuk menginstal dependensi atau tidak.
 
 ```bash
-npm run dev
-# or
-yarn dev
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  Next.js App Router (Tailwind + TypeScript)
+  │
+  ◇  Install dependencies? (currently only NPM is supported)
+  │  ● Yes / ○ No
+  └  # Pilih Ya atau Tidak menggunakan tombol panah
 ```
 
-Keempat, buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
+5. **Tunggu BikinProject Membuat Proyek**: Tunggu BikinProject membuat proyek untuk Anda.
+
+> [!NOTE]
+> Jika Anda memilih untuk memasang dependensi, BikinProject akan memasang dependensi yang diperlukan untuk Anda. Harap tunggu hingga penginstalan selesai.
+
+```bash
+  ┌   create-bikinproject-app
+  │
+  ◇  Where should we create your project?
+  │  ./your-project
+  │
+  ◇  Pick a project type within "./your-project"
+  │  Next.js App Router (Tailwind + TypeScript)
+  │
+  ◇  Install dependencies? (currently only NPM is supported)
+  │  No
+  │
+  ◇  ⏳ Creating project...
+  │
+  ◇  🎉 Project Created!
+  │
+  ◇  Next steps. ───────────────╮
+  │                             │
+  │  cd ./your-project          │
+  │  npm install                │
+  │  npm run dev                │
+  │                             │
+  ├─────────────────────────────╯
+  │
+  └  Have a Problems? Report to https://github.com/nuflakbrr/bikinproject/issues
+```
+
+6. **Mulai Membangun Proyek Anda**: Setelah BikinProject menghasilkan `starter project`, selanjutnya membangun proyek Anda.
+
+7. **Salin Environment Variable**: Salin `environment variable` dengan perintah berikut
+
+```bash
+cp .env.example .env
+```
+
+8. **Buka Server Pengembangan**: Buka [http://localhost:3000](http://localhost:3000) pada browser Anda dan lihat hasilnya.
 
 Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/Home.jsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
 
 ## Rute API
 
-[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/pages/api/hello.js`.
+[Rute API](https://nextjs.org/docs/api-routes/introduction) dapat diakses di [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Titik akhir ini dapat diedit di `/src/app/api/hello.ts`.
 
-Folder `/src/pages/api` dipetakan ke `/api/*`. File dalam direktori ini diperlakukan sebagai [Rute API](https://nextjs.org/docs/api-routes/introduction) bukannya Bereaksi halaman.
+Folder `/src/app/api` dipetakan ke `/api/*`. File dalam direktori ini diperlakukan sebagai [Rute API](https://nextjs.org/docs/api-routes/introduction) bukannya Bereaksi halaman.
 
 ## Pelajari Lebih
 
