@@ -14,7 +14,6 @@ const useScreenSize = (): string | undefined => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Mark that the component is now on the client side
     setIsClient(true);
 
     const handleResize = () => {
@@ -24,7 +23,7 @@ const useScreenSize = (): string | undefined => {
       });
     };
 
-    handleResize(); // Set the initial size
+    handleResize();
 
     window.addEventListener('resize', handleResize);
 
@@ -34,7 +33,7 @@ const useScreenSize = (): string | undefined => {
   }, []);
 
   if (!isClient) {
-    return undefined; // Return nothing during SSR
+    return undefined;
   }
 
   if (screenSize.width <= 374) {
