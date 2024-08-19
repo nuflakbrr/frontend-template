@@ -34,25 +34,21 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   └── context/
 │   └── data/
 │   └── hooks/
-│   └── interfaces/
 │   └── layouts/
 │   └── lib/
 │   └── pages/
 │   └── providers/
 │   └── index.css
 │   └── main.jsx
-│   └── vite-env.d.ts
 └── .gitignore
 └── .eslint.config.js
 └── index.html
+└── jsconfig.json
 └── package.json
 └── postcss.config.js
 └── README.md
-└── tailwind.config.ts
-└── tsconfig.app.json
-└── tsconfig.json
-└── tsconfig.node.json
-└── vite.config.ts
+└── tailwind.config.js
+└── vite.config.js
 ```
 
 #### Folder Common
