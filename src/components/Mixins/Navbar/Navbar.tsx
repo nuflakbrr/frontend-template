@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { headerNavLinks } from '@/data/headerNavLinks';
 import { classNames } from '@/lib/classNames';
+import ThemeToggle from '@/components/Common/ThemeToggle';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -130,6 +131,10 @@ const Navbar: FC = () => {
                     >
                       Daftar
                     </Link>
+                  </li>
+
+                  <li className='group'>
+                    <ThemeToggle />
                   </li>
                 </ul>
               </nav>
