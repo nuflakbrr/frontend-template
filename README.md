@@ -48,7 +48,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 └── package.json
 └── postcss.config.js
 └── README.md
-└── tailwind.config.ts
+└── tailwind.config.js
 └── tsconfig.app.json
 └── tsconfig.json
 └── tsconfig.node.json
