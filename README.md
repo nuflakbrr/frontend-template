@@ -1,10 +1,10 @@
-## Reactjs Typescript Template
+## Reactjs Template
 
 Ini adalah proyek [React.js](https://react.dev/) di-bootstrap dengan [`vitejs`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md).
 
 ## Teknologi Yang Digunakan
 
-- [React.js (Typescript)](https://react.dev/)
+- [React.js](https://react.dev/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/docs/intro/)
 
