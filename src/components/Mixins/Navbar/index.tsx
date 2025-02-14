@@ -1,10 +1,10 @@
 import { FC, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 
-import styles from './Navbar.module.css';
-import { headerNavLinks } from '@/data/headerNavLinks';
-import { classNames } from '@/lib/classNames';
+import { cn } from '@/lib/utils';
+import { navlinks } from './constant/navLinks';
 import ThemeToggle from '@/components/Common/ThemeToggle';
+import styles from './Navbar.module.css';
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -91,11 +91,11 @@ const Navbar: FC = () => {
                 className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
               >
                 <ul className="block lg:flex">
-                  {headerNavLinks?.map((a, i) => (
+                  {navlinks?.map((a, i) => (
                     <li className="group" key={i}>
                       <Link
                         to={a.path}
-                        className={classNames(
+                        className={cn(
                           isMenuActive(a.path)
                             ? 'text-teal-500'
                             : 'text-black dark:text-zinc-50',
@@ -109,7 +109,7 @@ const Navbar: FC = () => {
                   <li className="group">
                     <Link
                       to="/login"
-                      className={classNames(
+                      className={cn(
                         isMenuActive('/login')
                           ? 'text-teal-500'
                           : 'text-black dark:text-zinc-50',
@@ -122,7 +122,7 @@ const Navbar: FC = () => {
                   <li className="group">
                     <Link
                       to="/register"
-                      className={classNames(
+                      className={cn(
                         isMenuActive('/register')
                           ? 'text-teal-500'
                           : 'text-black dark:text-zinc-50',

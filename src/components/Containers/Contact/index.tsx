@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { siteMetadata } from '@/data/siteMetadata'
 import MainLayout from '@/layouts/MainLayout'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const ContainerContact: FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import Navbar from '@/components/Mixins/Navbar/Navbar';
+import Navbar from '@/components/Mixins/Navbar';
 import Footer from '@/components/Mixins/Footer';
 
 type Props = {
