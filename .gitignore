@@ -3,7 +3,12 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # testing
 /coverage
@@ -25,16 +30,23 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
+# env files (can opt-in for committing if needed)
 .env
 .env*.local
 
 # vercel
 .vercel
 
-# package-lock.json
-package-lock.json
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
-# yarn.lock
+# lockfiles
 yarn.lock
+package-lock.json
+pnpm-lock.yaml
+bun.lockb
+bun.lock
 
+# workspace
+pnpm-workspace.yaml

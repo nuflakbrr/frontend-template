@@ -4,8 +4,7 @@ import https from 'https';
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 const createNewClient = () => {
-  const BASE_API =
-    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/';
+  const BASE_API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/';
 
   return axios.create({
     baseURL: BASE_API,

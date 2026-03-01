@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use client';
 import React, { createContext, useEffect, useState } from 'react';
 
@@ -41,7 +40,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('access_token', accessToken || '');
     localStorage.setItem('user', JSON.stringify(user) || '');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken, user]);
 
   return (

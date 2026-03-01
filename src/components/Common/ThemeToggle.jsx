@@ -16,11 +16,7 @@ const ThemeToggle = () => {
   return (
     <button
       aria-label="Toggle Dark Mode"
-      onClick={() =>
-        setTheme(
-          theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
-        )
-      }
+      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
       className="ml-3"
     >
       <svg

@@ -1,161 +1,141 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '../Common/CustomIcons';
+import { GitHubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '../Common/CustomIcons';
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
-  const primaryLink = [
-    { title: 'Home', url: '/' },
-    { title: 'About', url: '/about' },
+  const footerLinks = [
+    {
+      title: 'Project',
+      links: [
+        { name: 'Fitur', href: '#features' },
+        { name: 'Cara Kerja', href: '#steps' },
+        { name: 'Harga', href: '/pricing' },
+        { name: 'Showcase', href: '/showcase' },
+      ],
+    },
+    {
+      title: 'Perusahaan',
+      links: [
+        { name: 'Tentang Kami', href: '/about' },
+        { name: 'Karir', href: '/career' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Kontak', href: '/contact' },
+      ],
+    },
+    {
+      title: 'Dukungan',
+      links: [
+        { name: 'Bantuan', href: '/help' },
+        { name: 'FAQ', href: '/faq' },
+        { name: 'Keamanan', href: '/security' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { name: 'Ketentuan', href: '/terms' },
+        { name: 'Privasi', href: '/privacy' },
+        { name: 'Lisensi', href: '/license' },
+      ],
+    },
   ];
 
-  const secondaryLink = [
-    { title: 'Career', url: '/career' },
-    { title: 'Internship', url: '/internship' },
-  ];
-
-  const tertiaryLink = [
-    { title: 'Contact Us', url: '/contact' },
-    { title: 'FAQ', url: '/faq' },
-  ];
-
-  const legalLink = [
-    { title: 'Terms of Service', url: '/terms-of-service' },
-    { title: 'Privacy Policy', url: '/privacy-policy' },
-  ];
-
-  const socialLink = [
-    { title: 'Facebook', icon: <FacebookIcon />, url: '/' },
-    { title: 'Instagram', icon: <InstagramIcon />, url: '/' },
-    { title: 'Twitter', icon: <TwitterIcon />, url: '/' },
-    { title: 'LinkedIn', icon: <LinkedInIcon />, url: '/' },
+  const socials = [
+    { name: 'GitHub', icon: <GitHubIcon />, href: '#' },
+    { name: 'Twitter', icon: <TwitterIcon />, href: '#' },
+    { name: 'LinkedIn', icon: <LinkedInIcon />, href: '#' },
+    { name: 'Instagram', icon: <InstagramIcon />, href: '#' },
   ];
 
   return (
-    <div className="bg-slate-800">
-      <footer className="max-w-7xl px-4 mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 lg:gap-8 pt-10 lg:pt-12 mb-16">
-          <div className="col-span-full lg:col-span-2">
-            <div className="mb-4">
-              <Link href="/" legacyBehavior>
-                <a
-                  className="inline-flex items-center text-gray-100 font-primary text-xl md:text-2xl font-bold gap-2"
-                  aria-label="logo"
-                >
-                  {/* <img
-                    src="/apple-touch-icon.png"
-                    alt="Brand Logo"
-                    className="w-8 h-8 object-cover object-center"
-                  /> */}
-                  Footer
-                </a>
-              </Link>
-            </div>
-
-            <p className="text-gray-400 text-justify sm:pr-8 mb-6">
-              about your company, and include information about your products.
+    <footer className="w-full bg-zinc-950 text-zinc-400 py-20 border-t border-zinc-900">
+      <div className="container mx-auto px-4">
+        {/* Top Section: Brand & Newsletter */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-zinc-900">
+          <div className="lg:col-span-5 space-y-6">
+            <Link href="/" className="inline-flex items-center gap-2 text-white font-bold text-2xl">
+              📦️ BikinProject
+            </Link>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+              CLI-based package starter generator yang dirancang untuk mempercepat workflow
+              pengembangan aplikasi Anda dengan standar industri.
             </p>
-
-            <div className="flex gap-4">
-              {socialLink?.map((f, i) => (
+            <div className="flex gap-4 pt-2">
+              {socials.map((social) => (
                 <a
-                  href={f.url}
-                  target="_blank"
-                  className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
-                  rel="noreferrer"
-                  key={i}
+                  key={social.name}
+                  href={social.href}
+                  className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 border border-zinc-800"
+                  aria-label={social.name}
                 >
-                  {f.icon}
+                  {social.icon}
                 </a>
               ))}
             </div>
           </div>
 
-          <div>
-            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
-              Company
+          <div className="lg:col-span-7">
+            <div className="bg-zinc-900/50 rounded-3xl p-8 border border-zinc-800 space-y-4">
+              <h3 className="text-xl font-bold text-white">Dapatkan Update Terbaru</h3>
+              <p>Jadilah yang pertama tahu tentang fitur dan promo terbaru dari kami.</p>
+              <form className="flex flex-col sm:flex-row gap-3 pt-2">
+                <input
+                  type="email"
+                  placeholder="name@email.com"
+                  className="flex-1 px-5 py-3 rounded-xl bg-zinc-950 border border-zinc-800 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg shadow-blue-500/10"
+                >
+                  Langganan
+                </button>
+              </form>
             </div>
-
-            <nav className="flex flex-col gap-4">
-              {primaryLink?.map((b, i) => (
-                <div key={i}>
-                  <Link href={b.url} legacyBehavior>
-                    <a className="text-gray-400 hover:text-teal-500 active:text-teal-600 transition duration-100">
-                      {b.title}
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </nav>
-          </div>
-
-          <div>
-            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
-              Others
-            </div>
-
-            <nav className="flex flex-col gap-4">
-              {secondaryLink?.map((c, i) => (
-                <div key={i}>
-                  <Link href={c.url} legacyBehavior>
-                    <a className="text-gray-400 hover:text-teal-500 active:text-teal-600 transition duration-100">
-                      {c.title}
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </nav>
-          </div>
-
-          <div>
-            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
-              Helps
-            </div>
-
-            <nav className="flex flex-col gap-4">
-              {tertiaryLink?.map((d, i) => (
-                <div key={i}>
-                  <Link href={d.url} legacyBehavior>
-                    <a className="text-gray-400 hover:text-teal-500 active:text-teal-600 transition duration-100">
-                      {d.title}
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </nav>
-          </div>
-
-          <div>
-            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
-              Legal
-            </div>
-
-            <nav className="flex flex-col gap-4">
-              {legalLink?.map((e, i) => (
-                <div key={i}>
-                  <Link href={e.url} legacyBehavior>
-                    <a className="text-gray-400 hover:text-teal-500 active:text-teal-600 transition duration-100">
-                      {e.title}
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </nav>
           </div>
         </div>
 
-        <div className="text-gray-400 text-sm text-center border-t border-gray-800 py-8">
-          © {year} - Naufal Akbar Nugroho. All rights reserved.
+        {/* Middle Section: Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 py-16">
+          {footerLinks.map((group) => (
+            <div key={group.title} className="space-y-6">
+              <h4 className="text-white font-bold uppercase tracking-wider text-sm">
+                {group.title}
+              </h4>
+              <ul className="space-y-4">
+                {group.links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-blue-500 hover:translate-x-1 inline-block transition-all duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </footer>
-    </div>
+
+        {/* Bottom Section: Copyright */}
+        <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm tracking-wide">
+          <p>© {year} BikinProject. Seluruh hak cipta dilindungi undang-undang.</p>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Syarat & Ketentuan
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
