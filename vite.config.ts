@@ -1,0 +1,54 @@
+import svgr from '@svgr/rollup'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import viteReact from '@vitejs/plugin-react'
+import fs from 'fs/promises'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import tsConfigPaths from 'vite-tsconfig-paths'
+
+export default defineConfig({
+    server: {
+        port: 3000,
+    },
+    resolve: {
+        alias: {
+            '@/app': resolve(__dirname, 'src/app'),
+            '@/api': resolve(__dirname, 'src/app/api'),
+            '@/features': resolve(__dirname, 'src/features'),
+            '@/shared': resolve(__dirname, 'src/shared'),
+            '@/assets': resolve(__dirname, 'src/assets'),
+            src: resolve(__dirname, 'src'),
+        },
+    },
+    esbuild: {
+        loader: 'tsx',
+        // include: /src\/.*\.tsx?$/,
+        // exclude: [],
+    },
+    optimizeDeps: {
+        esbuildOptions: {
+            plugins: [
+                {
+                    name: 'load-js-files-as-tsx',
+                    setup(build) {
+                        build.onLoad(
+                            { filter: /src\\.*\.js$/ },
+                            async (args) => ({
+                                loader: 'tsx',
+                                contents: await fs.readFile(args.path, 'utf8'),
+                            })
+                        );
+                    },
+                },
+            ],
+        },
+    },
+
+    plugins: [
+        svgr(),
+        tsConfigPaths(),
+        tanstackStart(),
+        // react's vite plugin must come after start's vite plugin
+        viteReact(),
+    ],
+})
