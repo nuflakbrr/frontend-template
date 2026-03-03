@@ -54,13 +54,13 @@ const About = () => {
                   mulai dari pemilihan bahasa, styling framework, hingga struktur folder terbaik.
                 </p>
 
-                <p className="sm:text-lg mb-6 md:mb-8 text-justify">
+                <div className="sm:text-lg mb-6 md:mb-8 text-justify">
                   Hanya dengan satu perintah di terminal, Anda bisa langsung fokus membangun fitur
                   tanpa pusing dengan boilerplate:
                   <div className="mt-4 p-4 bg-zinc-900 rounded-xl font-mono text-sm text-emerald-400 border border-zinc-800">
                     $ npx bikinproject@latest
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>

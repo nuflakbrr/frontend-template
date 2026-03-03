@@ -12,7 +12,7 @@ export const metadata = genPageMetadata({
 
 const Register = () => {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center p-4">
+    <section className="min-h-[100vh] flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white dark:bg-zinc-950 rounded-3xl border-2 border-zinc-100 dark:border-zinc-800 shadow-2xl overflow-hidden">
         <div className="bg-zinc-50 dark:bg-zinc-900/50 px-6 py-4 border-b-2 border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
