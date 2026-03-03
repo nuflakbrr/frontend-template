@@ -59,6 +59,7 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 │   ├── context/         # React Context Providers
 │   ├── data/            # Data statis & Metadata
 │   ├── hooks/           # Custom React Hooks (JS)
+│   ├── interfaces/      # TypeScript Interfaces
 │   ├── lib/             # Utilitas & Library helper
 │   └── providers/       # Wrapper providers untuk layout
 ├── eslint.config.mjs    # Konfigurasi ESLint terbaru
