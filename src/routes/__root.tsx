@@ -8,6 +8,12 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
+import { ThemeProvider } from '@/providers/ThemeProvider'
+import Navbar from '@/components/Mixins/Navbar'
+import Footer from '@/components/Mixins/Footer'
+import '../index.css'
+import ScrollToTop from '@/components/Common/ScrollToTop'
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -28,10 +34,12 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <Outlet />
-      <TanStackRouterDevtools initialIsOpen={false} />
-    </RootDocument>
+    <ThemeProvider>
+      <RootDocument>
+        <Outlet />
+        <TanStackRouterDevtools initialIsOpen={false} />
+      </RootDocument>
+    </ThemeProvider>
   )
 }
 
@@ -42,7 +50,10 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
+        <ScrollToTop />
+        <Footer />
         <Scripts />
       </body>
     </html>
