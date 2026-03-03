@@ -65,5 +65,16 @@ const Contact: FC = () => {
 }
 
 export const Route = createFileRoute('/(root)/contact/')({
+  head: () => ({
+    meta: [
+      {
+        title: `Kontak | ${siteMetadata.title}`,
+      },
+      {
+        name: 'description',
+        content: `Hubungi kami untuk kolaborasi atau pertanyaan terkait ${siteMetadata.title}.`,
+      },
+    ],
+  }),
   component: Contact,
 })

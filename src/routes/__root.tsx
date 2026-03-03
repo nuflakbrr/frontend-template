@@ -8,11 +8,12 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
+import { siteMetadata } from '@/data/siteMetadata'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import Navbar from '@/components/Mixins/Navbar'
 import Footer from '@/components/Mixins/Footer'
-import '../index.css'
 import ScrollToTop from '@/components/Common/ScrollToTop'
+import '../index.css'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,7 +26,93 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: siteMetadata.title,
+      },
+      {
+        name: 'description',
+        content: siteMetadata.description,
+      },
+      {
+        name: 'author',
+        content: siteMetadata.author,
+      },
+      {
+        name: 'keywords',
+        content:
+          'tanstack, react, start, template, frontend, seo, sitemap, naufal akbar nugroho',
+      },
+      // Open Graph / Facebook
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:url',
+        content: siteMetadata.siteUrl,
+      },
+      {
+        property: 'og:title',
+        content: siteMetadata.title,
+      },
+      {
+        property: 'og:description',
+        content: siteMetadata.description,
+      },
+      {
+        property: 'og:image',
+        content: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
+      },
+      // Twitter
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:url',
+        content: siteMetadata.siteUrl,
+      },
+      {
+        name: 'twitter:title',
+        content: siteMetadata.title,
+      },
+      {
+        name: 'twitter:description',
+        content: siteMetadata.description,
+      },
+      {
+        name: 'twitter:image',
+        content: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
+      },
+      {
+        name: 'twitter:creator',
+        content: siteMetadata.x,
+      },
+    ],
+    links: [
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png',
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest',
+      },
+      {
+        rel: 'canonical',
+        href: siteMetadata.siteUrl,
       },
     ],
   }),

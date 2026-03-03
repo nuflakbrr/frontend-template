@@ -71,5 +71,16 @@ const About: FC = () => {
 }
 
 export const Route = createFileRoute('/(root)/about/')({
+  head: () => ({
+    meta: [
+      {
+        title: `Tentang Kami | ${siteMetadata.title}`,
+      },
+      {
+        name: 'description',
+        content: `Pelajari lebih lanjut tentang ${siteMetadata.title} dan bagaimana kami membantu proses development Anda.`,
+      },
+    ],
+  }),
   component: About,
 })
