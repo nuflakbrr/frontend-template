@@ -113,6 +113,7 @@ export const GitHubIcon: FC = () => {
         width={24}
         height={24}
         viewBox="0 0 24 24"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
         <title>GitHub</title>

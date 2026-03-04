@@ -1,144 +1,111 @@
 import { FC, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link } from '@tanstack/react-router';
 
 import { cn } from '@/lib/utils';
 import { navlinks } from './constant/navLinks';
 import ThemeToggle from '@/components/Common/ThemeToggle';
+import useMobileResponsive from '@/hooks/useMobileResponsive';
 import styles from './Navbar.module.css';
 
 const Navbar: FC = () => {
+  const isMobile = useMobileResponsive();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // Navbar fixed position if scrolling
   useEffect(() => {
-    window.onscroll = () => {
-      const header = document.querySelector('header');
-      const fixNav = header?.offsetTop ?? 0;
-
-      if (window.pageYOffset > fixNav) {
-        header?.classList.add(styles.navbarFixed);
-      } else {
-        header?.classList.remove(styles.navbarFixed);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset > 0);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Hamburger menu handler
-  const hamburgerHandler = () => {
-    const hamburger = document.querySelector('#hamburger');
-    const navMenu = document.querySelector('#navMenu');
-
-    setIsOpen(!isOpen);
-
-    if (isOpen) {
-      hamburger?.classList.remove(styles.hamburgerActive);
-      navMenu?.classList.add('hidden');
-    } else {
-      hamburger?.classList.add(styles.hamburgerActive);
-      navMenu?.classList.remove('hidden');
-    }
-  };
-
-  // isMenuActive handler
-  const isMenuActive = (path: string) => {
-    const isHomePage = location.pathname === '/' && path === '/';
-
-    if (isHomePage) {
-      return true;
-    }
-
-    return location.pathname !== '/' && path !== '/' && location.pathname.includes(path);
-  };
-
   return (
-    <header className="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent">
+    <header
+      className={cn(
+        'fixed top-0 left-0 w-full flex items-center z-[50] transition-all duration-300',
+        (isScrolled || (isMobile && isOpen)) ? styles.navbarFixed : 'bg-transparent'
+      )}
+    >
       <div className="container mx-auto">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative flex items-center justify-between">
-            <div className="px-4">
-              <Link to="/" aria-label="logo" className="inline-flex items-center gap-2 py-6 text-xl font-bold font-primary lg:text-2xl">
-                {/* <img
-                  src="/apple-touch-icon.png"
-                  alt="Brand Logo"
-                  className="object-cover object-center w-8 h-8"
-                /> */}
-                Navbar
-              </Link>
-            </div>
-            <div className="flex items-center px-4">
-              <button
-                id="hamburger"
-                name="hamburger"
-                type="button"
-                className="absolute block right-4 lg:hidden"
-                onClick={hamburgerHandler}
-              >
-                <span
-                  className={`${styles.hamburgerLine} origin-top-left transition duration-300 ease-in-out`}
-                ></span>
-                <span
-                  className={`${styles.hamburgerLine} transition duration-300 ease-in-out`}
-                ></span>
-                <span
-                  className={`${styles.hamburgerLine} origin-bottom-left transition duration-300 ease-in-out`}
-                ></span>
-              </button>
+        <div className="flex items-center justify-between relative">
+          <div className="px-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6 text-zinc-900 dark:text-white"
+              aria-label="logo"
+            >
+              📦️ BikinProject
+            </Link>
+          </div>
+          <div className="flex items-center px-4">
+            <button
+              id="hamburger"
+              name="hamburger"
+              type="button"
+              className={cn(
+                'right-4 block absolute lg:hidden outline-none',
+                isOpen && styles.hamburgerActive
+              )}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <span
+                className={`${styles.hamburgerLine} bg-black dark:bg-white origin-top-left transition duration-300 ease-in-out`}
+              ></span>
+              <span
+                className={`${styles.hamburgerLine} bg-black dark:bg-white transition duration-300 ease-in-out`}
+              ></span>
+              <span
+                className={`${styles.hamburgerLine} bg-black dark:bg-white origin-bottom-left transition duration-300 ease-in-out`}
+              ></span>
+            </button>
 
-              <nav
-                id="navMenu"
-                className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
-              >
-                <ul className="block lg:flex">
-                  {navlinks?.map((a, i) => (
-                    <li className="group" key={i}>
-                      <Link
-                        to={a.path}
-                        className={cn(
-                          isMenuActive(a.path)
-                            ? 'text-teal-500'
-                            : 'text-black dark:text-zinc-50',
-                          'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
-                        )}
-                      >
-                        {a.title}
-                      </Link>
-                    </li>
-                  ))}
-                  <li className="group">
+            <nav
+              id="navMenu"
+              className={cn(
+                'absolute py-5 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-[calc(100%+0.5rem)] lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none transition-all duration-300',
+                !isOpen && 'hidden',
+                isMobile && 'bg-white/90 dark:bg-zinc-900/90 backdrop-blur-lg'
+              )}
+            >
+              <ul className="block lg:flex lg:items-center">
+                {navlinks?.map((a, i) => (
+                  <li className="group" key={i}>
                     <Link
-                      to="/login"
+                      to={a.path}
                       className={cn(
-                        isMenuActive('/login')
-                          ? 'text-teal-500'
-                          : 'text-black dark:text-zinc-50',
-                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
+                        styles.navLink,
+                        'mx-8 lg:mx-4 flex'
                       )}
+                      activeProps={{ className: styles.navLinkActive }}
+                      activeOptions={{ exact: a.path === '/' }}
                     >
-                      Masuk
+                      {a.title}
                     </Link>
                   </li>
-                  <li className="group">
-                    <Link
-                      to="/register"
-                      className={cn(
-                        isMenuActive('/register')
-                          ? 'text-teal-500'
-                          : 'text-black dark:text-zinc-50',
-                        'font-secondary font-semibold text-base py-2 mx-8 lg:mx-2 flex group-hover:text-teal-500 transition duration-300 ease-in-out',
-                      )}
-                    >
-                      Daftar
-                    </Link>
-                  </li>
+                ))}
+                <li className="ml-8 lg:ml-6 flex items-center gap-6 py-4 lg:py-0">
+                  <Link
+                    to="/login"
+                    className="text-zinc-500 dark:text-zinc-400 font-medium hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  >
+                    Masuk
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Daftar
+                  </Link>
+                </li>
 
-                  <li className='group'>
-                    <ThemeToggle />
-                  </li>
-                </ul>
-              </nav>
-            </div>
+                <li className="ml-8 lg:ml-4 flex items-center">
+                  <ThemeToggle />
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
