@@ -1,21 +1,47 @@
-## Reactjs Typescript Template
+## React.js TypeScript Template (Tailwind CSS, ESLint, Prettier)
 
-Ini adalah proyek [React.js](https://react.dev/) di-bootstrap dengan [`vitejs`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md).
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
+    <img alt="Banner TTN" src="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
+  </picture>
+</p>
+
+<p align="center">
+  <a href="https://badge.fury.io/js/bikinproject.svg">
+    <img src="https://badge.fury.io/js/bikinproject.svg" alt="NPM Version">
+  </a>
+  <a href="https://www.npmjs.com/package/bikinproject">
+    <img src="https://img.shields.io/npm/dt/bikinproject" alt="NPM Downloads">
+  </a>
+  <a href="https://www.npmjs.com/package/bikinproject">
+    <img src="https://img.shields.io/npm/l/bikinproject" alt="NPM License">
+  </a>
+</p>
+
+Ini adalah proyek [React.js](https://react.dev/) yang di-bootstrap menggunakan [**BikinProject**](https://nuflakbrr.github.io/bikinproject).
 
 ## Teknologi Yang Digunakan
 
-- [React.js (Typescript)](https://react.dev/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [Axios](https://axios-http.com/docs/intro/)
+- [React 19](https://react.dev/)
+- [TanStack Router](https://tanstack.com/router)
+- [TanStack Query](https://tanstack.com/query)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [ESLint & Prettier](https://eslint.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Fitur
 
 Fitur yang terdapat pada templat proyek ini adalah:
 
-- Proyek Arsitektur.
-- Authentikasi.
-- Kustomisasi `React Hooks`.
-- Beberapa fungsi kustom yang sering [Saya](https://github.com/nuflakbrr) pakai.
+- **Proyek Arsitektur**: Pemisahan komponen yang jelas menggunakan pola `Common` dan `Mixins`.
+- **Modern Stack**: Menggunakan versi terbaru dari React 19 dan TanStack.
+- **File-based Routing**: Menggunakan TanStack Router untuk manajemen rute yang type-safe.
+- **Automated SEO**: Script otomatis untuk menghasilkan metadata SEO (`scripts/generate-seo.ts`).
+- **Custom Hooks**: Kumpulan hooks yang berguna seperti `useAxios`, `useDebounce`, dan `useSort`.
+- **Tema Gelap/Terang**: Dukungan tema secara bawaan dengan `ThemeProvider`.
 
 ### Proyek Arsitektur
 
@@ -23,108 +49,86 @@ Terdapat beberapa poin penting terkait bagaimana menjalankan proyek arsitektur y
 
 ```
 /
-├── public/
+├── public/              # Aset statis (gambar, font, dll)
+├── scripts/             # Script utilitas (SEO generation)
 ├── src/
-│   └── components/
-│   │   └── Common/
-│   │   └── Containers/
-│   │   └── Mixins/
-│   │   └── README.md
-│   └── config/
-│   └── context/
-│   └── data/
-│   └── hooks/
-│   └── interfaces/
-│   └── layouts/
-│   └── lib/
-│   └── pages/
-│   └── providers/
-│   └── index.css
-│   └── main.tsx
-│   └── vite-env.d.ts
-└── .gitignore
-└── .eslint.config.js
-└── index.html
-└── package.json
-└── postcss.config.js
+│   ├── components/      # Komponen UI
+│   │   ├── Common/      # Komponen atomik/kecil
+│   │   └── Mixins/      # Komponen kompleks (gabungan Common)
+│   ├── data/            # Data statis & Metadata
+│   ├── hooks/           # Custom React Hooks (TS)
+│   ├── interfaces/      # Interface TypeScript
+│   ├── lib/             # Utilitas & Library helper
+│   ├── providers/       # Wrapper providers untuk layout
+│   └── routes/          # TanStack Router (Halaman & Layout)
+│       ├── (auth)/      # Rute grup untuk autentikasi
+│       ├── (root)/      # Rute grup untuk halaman utama
+│       └── __root.tsx   # Layout utama aplikasi
+├── eslint.config.js     # Konfigurasi ESLint
+├── package.json         # Dependensi & Scripts
+├── tailwind.config.js   # Konfigurasi Tailwind CSS
+├── vite.config.ts       # Konfigurasi Vite
 └── README.md
-└── tailwind.config.js
-└── tsconfig.app.json
-└── tsconfig.json
-└── tsconfig.node.json
-└── vite.config.ts
 ```
 
-#### Folder Common
+#### Komponen UI
 
-Folder `Common` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Common` Berisikan komponen-komponen kecil, seperti: tombol, dropdown, dll.
+- **Folder Common**: Berisi komponen-komponen atomik seperti tombol, icon, atau elemen UI dasar lainnya yang dapat digunakan kembali.
+- **Folder Mixins**: Berisi komponen-komponen yang lebih besar dan kompleks yang merupakan gabungan dari beberapa komponen `Common`, seperti Navbar atau Footer.
 
-#### Folder Mixins
+### Custom React Hooks
 
-Folder `Mixins` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Mixins` Berisikan komponen-komponen yang merupakan gabungan dari komponen-komponen kecil dari folder `Common`. Seperti: navbar (yang berisi beberapa hal umum seperti tombol, dropdown, dll).
+Terdapat beberapa hooks yang sudah disediakan untuk mempercepat pengembangan:
 
-#### Folder Containers
-
-Folder `Containers` terletak pada `/src/components/`. Lalu didalamnya berisikan apa saja? Folder `Containers` Berisikan kombinasi folder `Common` dan halaman itu sendiri yang membentuk 1 halaman. 1 halaman 1 folder `Containers` agar tetap rapi.
-
-Jika pada 1 container memiliki beberapa section, maka Anda harus memisahkan dan menaruhnya di dalam folder `components` namun masih tetap dalam 1 folder `Containers`. Seperti: `/src/components/Containers/Home/components`.
-
-### Authentikasi
-
-Pada templat proyek ini sudah menggunakan authentikasi menggunakan `React Context`. Jika user sudah melakukan authentikasi maka user tidak bisa mengakses halaman `login` atau `register` kembali.
-
-### Kustomisasi React Hooks
-
-Anda dapat menggunakan, serta menambahkan kustom `React Hooks` Anda sendiri pada folder `/src/hooks` yang telah disediakan. terdapat sebuah contoh kustomisasi `React Hooks` untuk `Data Fetching` menggunakan [Axios](https://axios-http.com/docs/intro).
+- `useAxios`: Untuk menangani request API dengan Axios secara terintegrasi.
+- `useClipboard`: Untuk menangani fitur salin ke papan klip.
+- `useDebounce`: Untuk menangani input yang memerlukan penundaan aksi.
+- `useHasMounted`: Untuk mendeteksi apakah komponen sudah dimount (client-side).
+- `useMobileResponsive`: Untuk mendeteksi tampilan mobile.
+- `useScreenSize`: Untuk memantau ukuran layar.
+- `useSort`: Untuk menangani logika pengurutan data.
 
 ## Mulai Sekarang
 
-Template ini tersedia di BikinProject! Cara bagaimana untuk menggunakan template ini, ikuti langkah-langkah sederhana berikut:
+Template ini tersedia di **BikinProject**! Cara bagaimana untuk menggunakan template ini, ikuti langkah-langkah sederhana berikut:
 
-1. **Instal BikinProject**: Mulailah dengan menginstal BikinProject di komputer Anda.
+1. **Instal BikinProject**: Mulailah dengan menjalankan perintah berikut di terminal Anda.
 
 ```bash
-  npx bikinproject@latest
+npx bikinproject@latest
 ```
 
-2. **Beritahu BikinProject Tempat Membuat Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.
+2. **Tentukan Direktori Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.
 
 ```bash
-  ┌   create-bikinproject-app
-  │
-  ◇  Where should we create your project?
-  └  ./your-project # Masukkan nama proyek Anda, seperti my-project atau .
+┌   create-bikinproject-app
+│
+◇  Where should we create your project?
+└  ./your-project # Masukkan nama proyek Anda, seperti my-project atau .
 ```
 
 3. **Pilih Proyek Starter**: Pilih proyek permulaan yang sesuai dengan kebutuhan Anda.
 
 ```bash
-  ┌   create-bikinproject-app
-  │
-  ◇  Where should we create your project?
-  │  ./your-project
-  │
-  ◇  Pick a project type within "./your-project"
-  │  ● React.js (Tailwind + TypeScript)
-  │  ○ React.js (Tailwind + JavaScript)
-  │  ○ dll.
-  └  # Pilih jenis proyek dengan menggunakan tombol panah
+┌   create-bikinproject-app
+│
+◇  Where should we create your project?
+│  ./your-project
+│
+◇  Pick a project type within "./your-project"
+│  ● React.js (Tailwind + TypeScript)
+│  ○ dll.
+└  # Pilih jenis proyek dengan menggunakan tombol panah
 ```
 
-4. **Pilih sertakan instal dependensi**: Pilih untuk menginstal dependensi atau tidak.
+4. **Instal Dependensi**: Pilih untuk menginstal dependensi secara otomatis.
 
 ```bash
-  ┌   create-bikinproject-app
-  │
-  ◇  Where should we create your project?
-  │  ./your-project
-  │
-  ◇  Pick a project type within "./your-project"
-  │  React.js (Tailwind + TypeScript)
-  │
-  ◇  Install dependencies? (currently only NPM is supported)
-  │  ● Yes / ○ No
-  └  # Pilih Ya atau Tidak menggunakan tombol panah
+┌   create-bikinproject-app
+│
+◇  Install dependencies? (pnpm is recommended)
+│  ● Yes / ○ No
+└  # Pilih Ya atau Tidak
 ```
 
 5. **Tunggu BikinProject Membuat Proyek**: Tunggu BikinProject membuat proyek untuk Anda.
@@ -132,57 +136,19 @@ Template ini tersedia di BikinProject! Cara bagaimana untuk menggunakan template
 > [!NOTE]
 > Jika Anda memilih untuk memasang dependensi, BikinProject akan memasang dependensi yang diperlukan untuk Anda. Harap tunggu hingga penginstalan selesai.
 
-```bash
-  ┌   create-bikinproject-app
-  │
-  ◇  Where should we create your project?
-  │  ./your-project
-  │
-  ◇  Pick a project type within "./your-project"
-  │  React.js (Tailwind + TypeScript)
-  │
-  ◇  Install dependencies? (currently only NPM is supported)
-  │  No
-  │
-  ◇  ⏳ Creating project...
-  │
-  ◇  🎉 Project Created!
-  │
-  ◇  Next steps. ───────────────╮
-  │                             │
-  │  cd ./your-project          │
-  │  npm install                │
-  │  npm run dev                │
-  │                             │
-  ├─────────────────────────────╯
-  │
-  └  Have a Problems? Report to https://github.com/nuflakbrr/bikinproject/issues
-```
-
-6. **Mulai Membangun Proyek Anda**: Setelah BikinProject menghasilkan `starter project`, selanjutnya membangun proyek Anda.
-
-7. **Salin Environment Variable**: Salin `environment variable` dengan perintah berikut
+6. **Konfigurasi Environment**: Salin file `.env.example` menjadi `.env`.
 
 ```bash
 cp .env.example .env
 ```
 
-8. **Buka Server Pengembangan**: Buka [http://localhost:5173](http://localhost:5173) pada browser Anda dan lihat hasilnya.
+7. **Jalankan Server**: Buka [http://localhost:5173](http://localhost:5173) pada browser Anda.
 
-Anda dapat mulai mengedit halaman dengan memodifikasi `/src/components/Containers/Home/index.tsx`. Halaman diperbarui secara otomatis saat Anda mengedit file.
+```bash
+pnpm dev
+```
 
-## Pelajari Lebih
-
-Untuk mempelajari lebih lanjut tentang React.js, lihat referensi berikut:
-
-- [Dokumentasi React.js](https://react.dev/learn) - tutorial React.js yang interaktif.
-
-Anda dapat memeriksa [GitHub Repositori React.js](https://github.com/facebook/react/) - umpan balik dan kontribusi Anda dipersilakan!
-
-## Author Templat Ini
-
-Nama kontributor dan info kontak,
+## Author
 
 Naufal Akbar Nugroho  
 [@nuflakbrr](https://github.com/nuflakbrr)
-[@kbrnugroho](https://instagram.com/kbrnugroho)
