@@ -8,13 +8,7 @@ import {
   useCallback,
 } from 'react';
 
-type Theme = 'light' | 'dark' | 'system';
-
-interface ThemeContextType {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-  resolvedTheme: 'light' | 'dark';
-}
+import { Theme, ThemeContextType } from '@/interfaces/providers/ThemeProvider';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 

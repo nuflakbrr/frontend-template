@@ -3,5 +3,5 @@ export interface PageSEOProps {
   description?: string;
   image?: string;
 
-  [key: string]: any;
+  [key: string]: string | number | boolean | undefined;
 }

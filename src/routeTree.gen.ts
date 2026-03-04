@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as rootIndexRouteImport } from './routes/(root)/index'
 import { Route as rootContactIndexRouteImport } from './routes/(root)/contact/index'
 import { Route as rootAboutIndexRouteImport } from './routes/(root)/about/index'
 import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/index'
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
 
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const rootIndexRoute = rootIndexRouteImport.update({
   id: '/(root)/',
   path: '/',
@@ -42,6 +48,7 @@ const authLoginIndexRoute = authLoginIndexRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/$': typeof SplatRoute
   '/': typeof rootIndexRoute
   '/login/': typeof authLoginIndexRoute
   '/register/': typeof authRegisterIndexRoute
@@ -49,6 +56,7 @@ export interface FileRoutesByFullPath {
   '/contact/': typeof rootContactIndexRoute
 }
 export interface FileRoutesByTo {
+  '/$': typeof SplatRoute
   '/': typeof rootIndexRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
@@ -57,6 +65,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/$': typeof SplatRoute
   '/(root)/': typeof rootIndexRoute
   '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/register/': typeof authRegisterIndexRoute
@@ -65,11 +74,12 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login/' | '/register/' | '/about/' | '/contact/'
+  fullPaths: '/$' | '/' | '/login/' | '/register/' | '/about/' | '/contact/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/about' | '/contact'
+  to: '/$' | '/' | '/login' | '/register' | '/about' | '/contact'
   id:
     | '__root__'
+    | '/$'
     | '/(root)/'
     | '/(auth)/login/'
     | '/(auth)/register/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  SplatRoute: typeof SplatRoute
   rootIndexRoute: typeof rootIndexRoute
   authLoginIndexRoute: typeof authLoginIndexRoute
   authRegisterIndexRoute: typeof authRegisterIndexRoute
@@ -87,6 +98,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(root)/': {
       id: '/(root)/'
       path: '/'
@@ -126,6 +144,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  SplatRoute: SplatRoute,
   rootIndexRoute: rootIndexRoute,
   authLoginIndexRoute: authLoginIndexRoute,
   authRegisterIndexRoute: authRegisterIndexRoute,

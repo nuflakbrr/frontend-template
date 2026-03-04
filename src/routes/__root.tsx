@@ -13,9 +13,20 @@ import { ThemeProvider } from '@/providers/ThemeProvider'
 import Navbar from '@/components/Mixins/Navbar'
 import Footer from '@/components/Mixins/Footer'
 import ScrollToTop from '@/components/Common/ScrollToTop'
+import ErrorState from '@/components/Common/ErrorState'
 import '../index.css'
 
 export const Route = createRootRoute({
+  errorComponent: (props: { error: Error }) => {
+    const error = props.error as unknown as Record<string, unknown>
+    const statusCode =
+      typeof error.status === 'number'
+        ? error.status
+        : typeof error.statusCode === 'number'
+          ? error.statusCode
+          : 500
+    return <ErrorState code={statusCode} error={props.error} />
+  },
   head: () => ({
     meta: [
       {

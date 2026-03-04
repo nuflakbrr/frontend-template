@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nuflakbrr.github.io/bikinproject//sitemap.xml
-Host: https://nuflakbrr.github.io/bikinproject/
+Sitemap: https://nuflakbrr.github.io/bikinproject/sitemap.xml
+Host: https://nuflakbrr.github.io/bikinproject
