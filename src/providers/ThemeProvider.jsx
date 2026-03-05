@@ -1,60 +1,88 @@
-import PropTypes from 'prop-types'
-import { createContext, useEffect, useState } from "react"
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useSyncExternalStore,
+  useCallback,
+} from 'react';
 
-const initialState = {
-  theme: "system",
-  setTheme: () => null,
-}
+const ThemeContext = createContext(undefined);
 
-const ThemeProviderContext = createContext(initialState)
-
-export function ThemeProvider({
+export const ThemeProvider = ({
   children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
-  ...props
-}) {
-  const [theme, setTheme] = useState(
-    () => (localStorage.getItem(storageKey)) || defaultTheme
-  )
+  defaultTheme = 'system',
+  storageKey = 'theme-preference',
+}) => {
+  const subscribe = useCallback(
+    (callback) => {
+      window.addEventListener('storage', callback);
+      return () => window.removeEventListener('storage', callback);
+    },
+    []
+  );
+
+  const getSnapshot = useCallback(() => {
+    return (localStorage.getItem(storageKey)) || defaultTheme;
+  }, [storageKey, defaultTheme]);
+
+  const getServerSnapshot = useCallback(() => {
+    return defaultTheme;
+  }, [defaultTheme]);
+
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  const [resolvedTheme, setResolvedTheme] = useState('light');
+
+  const setTheme = useCallback(
+    (newTheme) => {
+      localStorage.setItem(storageKey, newTheme);
+      // Dispatch a storage event so useSyncExternalStore updates in the same tab
+      window.dispatchEvent(new Event('storage'));
+    },
+    [storageKey]
+  );
 
   useEffect(() => {
-    const root = window.document.documentElement
+    const root = window.document.documentElement;
 
-    root.classList.remove("light", "dark")
+    const applyTheme = (t) => {
+      let resolved;
 
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light"
+      if (t === 'system') {
+        resolved = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      } else {
+        resolved = t;
+      }
 
-      root.classList.add(systemTheme)
-      return
+      root.classList.remove('light', 'dark');
+      root.classList.add(resolved);
+      setResolvedTheme(resolved);
+    };
+
+    applyTheme(theme);
+
+    if (theme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const listener = () => applyTheme('system');
+      mediaQuery.addEventListener('change', listener);
+      return () => mediaQuery.removeEventListener('change', listener);
     }
-
-    root.classList.add(theme)
-  }, [theme])
-
-  const value = {
-    theme,
-    setTheme: (theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
-  }
+  }, [theme]);
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
       {children}
-    </ThemeProviderContext.Provider>
-  )
-}
+    </ThemeContext.Provider>
+  );
+};
 
-ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-  defaultTheme: PropTypes.string,
-  storageKey: PropTypes.string,
-}
-
-export default ThemeProviderContext
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+};

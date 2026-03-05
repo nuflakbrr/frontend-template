@@ -1,52 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 
-const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState({
-    width: 0,
-    height: 0,
-  });
-  const [isClient, setIsClient] = useState(false);
+const subscribe = (callback) => {
+  window.addEventListener('resize', callback);
+  return () => window.removeEventListener('resize', callback);
+};
 
-  useEffect(() => {
-    setIsClient(true);
+const getSnapshot = () => {
+  const width = window.innerWidth;
 
-    const handleResize = () => {
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  if (!isClient) {
-    return undefined;
-  }
-
-  if (screenSize.width <= 374) {
+  if (width <= 374) {
     return 'Mobile XS';
-  } else if (screenSize.width >= 375 && screenSize.width <= 424) {
+  } else if (width >= 375 && width <= 424) {
     return 'Mobile M';
-  } else if (screenSize.width >= 425 && screenSize.width <= 765) {
+  } else if (width >= 425 && width <= 767) {
     return 'Mobile L';
-  } else if (screenSize.width >= 768 && screenSize.width <= 1023) {
+  } else if (width >= 768 && width <= 1023) {
     return 'Tablet';
-  } else if (screenSize.width >= 1024 && screenSize.width <= 1439) {
+  } else if (width >= 1024 && width <= 1439) {
     return 'Laptop';
-  } else if (screenSize.width >= 1440 && screenSize.width <= 2559) {
+  } else if (width >= 1440 && width <= 2559) {
     return 'Laptop LG';
-  } else if (screenSize.width >= 2560) {
+  } else if (width >= 2560) {
     return 'Laptop XL';
   }
 
   return undefined;
+};
+
+const getServerSnapshot = () => undefined;
+
+const useScreenSize = () => {
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 };
 
 export default useScreenSize;

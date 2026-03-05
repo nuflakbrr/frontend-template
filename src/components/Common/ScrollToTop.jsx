@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 
-import { classNames } from '@/lib/classNames';
+import { cn } from '@/lib/utils';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,13 +36,13 @@ const ScrollToTop = () => {
         <button
           type="button"
           onClick={scrollTop}
-          className={classNames(
+          className={cn(
             isVisible ? 'opacity-100' : 'opacity-0 cursor-default',
-            'flex flex-col justify-center items-center rounded-lg bg-teal-500 p-2 text-white transition-all hover:bg-teal-600',
+            'flex flex-col justify-center items-center rounded-lg bg-blue-500 p-2 text-white transition-all hover:bg-blue-600'
           )}
         >
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
             fill="currentColor"
