@@ -1,7 +1,7 @@
 {
   "name": "astro-template",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "pnpm generate:seo && astro dev",
     "build": "pnpm generate:seo && pnpm format && astro build",
@@ -36,29 +36,5 @@
     "typescript": "^5.9.3",
     "vite": "6.4.1",
     "yaml": "^2.8.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "vite": "6.4.1",
-      "rollup": "4.59.0"
-    },
-    "packageExtensions": {
-      "astro": {
-        "peerDependencies": {
-          "tsx": "*",
-          "jiti": "*",
-          "lightningcss": "*",
-          "yaml": "*"
-        }
-      },
-      "@tailwindcss/vite": {
-        "peerDependencies": {
-          "tsx": "*",
-          "jiti": "*",
-          "lightningcss": "*",
-          "yaml": "*"
-        }
-      }
-    }
   }
 }
