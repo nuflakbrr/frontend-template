@@ -14,9 +14,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/api': resolve(__dirname, 'src/api'),
+      "@/components/*": resolve(__dirname, 'src/components/*'),
+      "@/data/*": resolve(__dirname, 'src/data/*'),
       '@/features': resolve(__dirname, 'src/features'),
+      "@/hooks/*": resolve(__dirname, 'src/hooks/*'),
+      "@/interfaces/*": resolve(__dirname, 'src/interfaces/*'),
+      "@/lib/*": resolve(__dirname, 'src/lib/*'),
+      "@/providers/*": resolve(__dirname, 'src/providers/*'),
       '@/shared': resolve(__dirname, 'src/shared'),
-      src: resolve(__dirname, 'src'),
+      '@/': resolve(__dirname, 'src'),
     },
   },
   esbuild: {
