@@ -17,7 +17,7 @@ export default defineConfig({
             '@/features': resolve(__dirname, 'src/features'),
             '@/shared': resolve(__dirname, 'src/shared'),
             '@/assets': resolve(__dirname, 'src/assets'),
-            src: resolve(__dirname, 'src'),
+            '@/': resolve(__dirname, 'src'),
         },
     },
     esbuild: {
