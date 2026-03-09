@@ -25,7 +25,7 @@ export default defineConfig({
       '@/api': resolve(__dirname, 'src/api'),
       '@/features': resolve(__dirname, 'src/features'),
       '@/shared': resolve(__dirname, 'src/shared'),
-      src: resolve(__dirname, 'src'),
+      '@/': resolve(__dirname, 'src'),
     },
   },
   esbuild: {

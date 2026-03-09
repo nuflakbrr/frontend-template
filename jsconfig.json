@@ -8,7 +8,7 @@
       "@/interfaces/*": ["./src/interfaces/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/providers/*": ["./src/providers/*"],
-      "src/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "target": "ES2022",
     "useDefineForClassFields": true,
