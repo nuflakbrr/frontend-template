@@ -40,7 +40,7 @@ function getRoutes(dir: string, base: string = ''): string[] {
       }
     } else {
       const ext = path.extname(item)
-      if (ext === '.tsx' || ext === '.ts') {
+      if (ext === '.vue') {
         const name = path.basename(item, ext)
 
         // Skip layout files (_layout.tsx), root (__root.tsx), or splat ($)
