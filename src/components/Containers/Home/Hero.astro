@@ -54,7 +54,7 @@
           class="group flex items-center justify-between rounded-2xl border-2 border-zinc-200 bg-zinc-100 p-4 font-mono text-sm md:text-base dark:border-zinc-800 dark:bg-zinc-900"
         >
           <span class="text-zinc-800 dark:text-zinc-200">
-            <span class="text-blue-600 dark:text-blue-400">$</span> npx bikinproject@latest
+            <span class="text-blue-600 dark:text-blue-400">$</span> npx create-bikinproject-app@latest
           </span>
           <button
             id="copy-btn"
@@ -187,7 +187,7 @@
 <script>
   const copyBtn = document.getElementById("copy-btn");
   copyBtn?.addEventListener("click", () => {
-    navigator.clipboard.writeText("npx bikinproject@latest");
+    navigator.clipboard.writeText("npx create-bikinproject-app@latest ");
 
     // Simple feedback
     const originalContent = copyBtn.innerHTML;
