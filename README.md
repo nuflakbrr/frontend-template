@@ -2,21 +2,21 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
-    <img alt="Banner TTN" src="https://github.com/nuflakbrr/bikinproject/blob/main/assets/BikinProject.jpg?raw=true">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nuflakbrr/create-bikinproject-app/blob/v2/assets/BikinProject.jpg?raw=true">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/nuflakbrr/create-bikinproject-app/blob/v2/assets/BikinProject.jpg?raw=true">
+    <img alt="Banner TTN" src="https://github.com/nuflakbrr/create-bikinproject-app/blob/v2/assets/BikinProject.jpg?raw=true">
   </picture>
 </p>
 
 <p align="center">
-  <a href="https://badge.fury.io/js/bikinproject.svg">
-    <img src="https://badge.fury.io/js/bikinproject.svg" alt="NPM Version">
+  <a href="https://badge.fury.io/js/create-bikinproject-app.svg">
+    <img src="https://badge.fury.io/js/create-bikinproject-app.svg" alt="NPM Verion">
   </a>
-  <a href="https://www.npmjs.com/package/bikinproject">
-    <img src="https://img.shields.io/npm/dt/bikinproject" alt="NPM Downloads">
+  <a href="https://www.npmjs.com/package/create-bikinproject-app">
+    <img src="https://img.shields.io/npm/dt/create-bikinproject-app" alt="NPM Downloads">
   </a>
-  <a href="https://www.npmjs.com/package/bikinproject">
-    <img src="https://img.shields.io/npm/l/bikinproject" alt="NPM License">
+  <a href="https://www.npmjs.com/package/create-bikinproject-app">
+    <img src="https://img.shields.io/npm/l/create-bikinproject-app" alt="NPM License">
   </a>
 </p>
 
@@ -95,7 +95,7 @@ Template ini tersedia di **BikinProject**! Cara bagaimana untuk menggunakan temp
 1. **Instal BikinProject**: Mulailah dengan menjalankan perintah berikut di terminal Anda.
 
 ```bash
-npx bikinproject@latest
+npx create-bikinproject-app@latest
 ```
 
 2. **Tentukan Direktori Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.
