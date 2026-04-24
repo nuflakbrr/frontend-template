@@ -6,7 +6,7 @@ const steps = [
     number: '01',
     title: 'Jalankan Command',
     description:
-      'Buka terminal favorit Anda dan jalankan "npx bikinproject@latest". Tidak perlu instalasi global yang memberatkan sistem.',
+      'Buka terminal favorit Anda dan jalankan "npx create-bikinproject-app@latest". Tidak perlu instalasi global yang memberatkan sistem.',
   },
   {
     number: '02',

@@ -90,7 +90,7 @@ Template ini tersedia di **BikinProject**! Cara bagaimana untuk menggunakan temp
 1. **Instal BikinProject**: Mulailah dengan menjalankan perintah berikut di terminal Anda.
 
 ```bash
-npx bikinproject@latest
+npx create-bikinproject-app@latest
 ```
 
 2. **Tentukan Direktori Proyek**: Masukkan direktori tempat Anda ingin membuat proyek.

@@ -58,7 +58,7 @@ const About = () => {
                   Hanya dengan satu perintah di terminal, Anda bisa langsung fokus membangun fitur
                   tanpa pusing dengan boilerplate:
                   <div className="mt-4 p-4 bg-zinc-900 rounded-xl font-mono text-sm text-emerald-400 border border-zinc-800">
-                    $ npx bikinproject@latest
+                    $ npx create-bikinproject-app@latest
                   </div>
                 </div>
               </div>
