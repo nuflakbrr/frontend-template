@@ -3,7 +3,7 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import Hero from '@/components/Pages/Home/Hero.vue'
 import Features from '@/components/Pages/Home/Features.vue'
 import Steps from '@/components/Pages/Home/Steps.vue'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo } from '@/hooks/useSeo'
 
 useSeo({
   title: 'Home',

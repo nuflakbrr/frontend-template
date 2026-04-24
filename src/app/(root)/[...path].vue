@@ -3,7 +3,7 @@ import { computed, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import ErrorState from '@/components/Common/ErrorState.vue'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo } from '@/hooks/useSeo'
 
 const route = useRoute()
 

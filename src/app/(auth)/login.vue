@@ -2,11 +2,11 @@
 import { RouterLink } from 'vue-router'
 import { GitHubIcon } from '@/components/Common/CustomIcons'
 import MainLayout from '@/layouts/MainLayout.vue'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo } from '@/hooks/useSeo'
 
 useSeo({
-  title: 'Register',
-  description: 'Daftar akun baru di BikinProject.',
+  title: 'Login',
+  description: 'Masuk ke akun BikinProject Anda.',
 })
 </script>
 
@@ -23,7 +23,7 @@ useSeo({
         >
           <div class="flex items-center gap-2">
             <span class="text-xl">📦</span>
-            <span class="font-mono font-bold text-zinc-900 dark:text-white"> auth --register </span>
+            <span class="font-mono font-bold text-zinc-900 dark:text-white">auth --login</span>
           </div>
           <div class="flex gap-1.5 opacity-30">
             <div class="w-3 h-3 rounded-full bg-zinc-400" />
@@ -34,9 +34,9 @@ useSeo({
 
         <div class="p-8 space-y-8">
           <div class="text-center space-y-2">
-            <h1 class="text-3xl font-black text-zinc-950 dark:text-white">Buat Akun Baru</h1>
+            <h1 class="text-3xl font-black text-zinc-950 dark:text-white">Selamat Datang</h1>
             <p class="text-zinc-500 dark:text-zinc-400 font-medium">
-              Bergabung dengan komunitas BikinProject.
+              Masuk untuk mengelola project Anda.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ useSeo({
               type="submit"
               class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-xl shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] mt-4"
             >
-              Daftar Sekarang
+              Masuk Ke Sistem
             </button>
 
             <div class="relative flex items-center justify-center">
@@ -98,12 +98,12 @@ useSeo({
           </form>
 
           <p class="text-center text-zinc-500 dark:text-zinc-400 font-medium">
-            Sudah punya akun?
+            Belum punya akun?
             <RouterLink
-              to="/login"
+              to="/register"
               class="text-blue-600 dark:text-blue-400 font-bold hover:underline"
             >
-              Masuk Saja
+              Daftar Sekarang
             </RouterLink>
           </p>
         </div>

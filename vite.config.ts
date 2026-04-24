@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     VueRouter({
-      routesFolder: 'src/routes',
+      routesFolder: 'src/app',
     }),
     tsConfigPaths(),
     vue(),

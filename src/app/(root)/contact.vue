@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { siteMetadata } from '@/data/siteMetadata'
 import MainLayout from '@/layouts/MainLayout.vue'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo } from '@/hooks/useSeo'
 
 useSeo({
   title: 'Kontak',

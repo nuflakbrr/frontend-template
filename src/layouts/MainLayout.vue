@@ -2,7 +2,7 @@
 import Navbar from '@/components/Mixins/Navbar/index.vue'
 import Footer from '@/components/Mixins/Footer.vue'
 import ScrollToTop from '@/components/Common/ScrollToTop.vue'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo } from '@/hooks/useSeo'
 
 useSeo()
 </script>
