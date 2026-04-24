@@ -56,7 +56,7 @@ const About = () => {
                   <div className="p-5 bg-zinc-950 rounded-2xl font-mono text-sm md:text-base text-emerald-400 border border-zinc-800 shadow-xl group transition-all duration-300 hover:border-emerald-500/30">
                     <div className="flex items-center gap-3">
                       <span className="text-zinc-600">$</span>
-                      <span className="group-hover:text-emerald-300 transition-colors">npx bikinproject@latest</span>
+                      <span className="group-hover:text-emerald-300 transition-colors">npx create-bikinproject-app@latest</span>
                     </div>
                   </div>
                 </div>
